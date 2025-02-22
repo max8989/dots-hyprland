@@ -1,6 +1,6 @@
 * {
   /* `otf-font-awesome` and SpaceMono Nerd Font are required to be installed for icons */
-  font-family: CaskaydiaCove Nerd, Font, Mono, sans-serif;
+  font-family: CaskaydiaCove Nerd Font Mono;
   font-size: 15px;
   transition: background-color 0.1s ease-out;
 }
@@ -8,7 +8,7 @@
 window#waybar {
   background: transparent;
   color: #ffffff;
-  font-family: CaskaydiaCove Nerd, Font, Mono, sans-serif;
+  font-family: CaskaydiaCove Nerd Font Mono;
   transition: background-color 0.5s;
 }
 
@@ -72,7 +72,7 @@ window#waybar {
 
 #workspaces button {
   background: transparent;
-  font-family: CaskaydiaCove Nerd, Font, Mono, sans-serif;
+  font-family: CaskaydiaCove Nerd Font Mono;
   font-weight: 900;
   font-size: 13pt;
   color: #ffffff;
