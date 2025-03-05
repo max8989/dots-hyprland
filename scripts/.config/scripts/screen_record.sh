@@ -10,7 +10,7 @@ notify-send "Screen Recording" "Recording in: 2" -i video-display -t 3000
 sleep 1
 notify-send "Screen Recording" "Recording in: 1" -i video-display -t 2000
 sleep 1
-notify-send "Screen Recording" "Recording..." -i video-display -t 2000
+notify-send "Screen Recording" "Recording..." -i video-display -t 1000
 
 # Set date/time for filename
 dateTime=$(date +%m-%d-%Y-%H-%M-%S)
