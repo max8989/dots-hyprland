@@ -1,100 +1,90 @@
 {
-    "battery": {
-        "format": "{icon}  {capacity}%",
-        "format-alt": "{time}  {icon}",
-        "format-charging": "  {capacity}%",
-        "format-full": "{icon}  {capacity}%",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ],
-        "format-plugged": "  {capacity}%",
-        "states": {
-            "critical": 15,
-            "warning": 30
-        }
-    },
-    "battery#bat2": {
-        "bat": "BAT2"
-    },
-    "clock": {
-        "format": "{:%H:%M | %e %B} ",
-        "format-alt": "{:%Y-%m-%d}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-    },
-    "cpu": {
-        "format": "  {usage}%",
-        "tooltip": true
-    },
-    "custom/arch": {
-        "format": "󰣇",
-        "tooltip": true,
-        "tooltip-format": "btw"
-    },
-    "hyprland/language": {
-        "format-en": "EN",
-        "format-fr": "FR"
-    },
-    "hyprland/workspaces": {
-        "all-outputs": true,
-        "disable-scroll": true,
-        "format": "{name}",
-        "format-icons": {
-            "active": "",
-            "default": "",
-            "urgent": ""
-        },
-        "warp-on-scroll": false
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
-    "memory": {
-        "format": "  {}%",
-        "tooltip": true
-    },
-    "network": {
-        "format-disconnected": "Disconnected ⚠",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-wifi": "   {essid} ({signalStrength}%)",
-        "on-click": "kitty -e 'nmtui'",
-        "tooltip-format": "{ifname} via {gwaddr} "
-    },
-    "pulseaudio": {
-        "format": "{icon}  {volume}%",
-        "format-bluetooth": "{icon} {volume}%  {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-icons": {
-            "car": "",
-            "default": [
-                "",
-                "",
-                ""
-            ],
-            "hands-free": "",
-            "headphone": "",
-            "headset": "",
-            "phone": "",
-            "portable": ""
-        },
-        "format-muted": " {format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": "",
-        "on-click": "pavucontrol"
-    },
-    "temperature": {
-        "critical-threshold": 100,
-        "format": " {temperatureC}°C",
-        "format-critical": " {temperatureC}",
-        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
-        "interval": 10
+  "battery": {
+    "format": "{icon}  {capacity}%",
+    "format-alt": "{time}  {icon}",
+    "format-charging": "  {capacity}%",
+    "format-full": "{icon}  {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "format-plugged": "  {capacity}%",
+    "states": {
+      "critical": 15,
+      "warning": 30
     }
+  },
+  "battery#bat2": {
+    "bat": "BAT2"
+  },
+  "clock": {
+    "format": "{:%H:%M | %e %B} ",
+    "format-alt": "{:%Y-%m-%d}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "cpu": {
+    "format": "  {usage}%",
+    "tooltip": true
+  },
+  "custom/arch": {
+    "format": "󰣇",
+    "tooltip": true,
+    "tooltip-format": "btw"
+  },
+  "hyprland/language": {
+    "format-en": "EN",
+    "format-fr": "FR"
+  },
+  "hyprland/workspaces": {
+    "all-outputs": true,
+    "disable-scroll": true,
+    "format": "{name}",
+    "format-icons": {
+      "active": "",
+      "default": "",
+      "urgent": ""
+    },
+    "warp-on-scroll": false
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "memory": {
+    "format": "  {}%",
+    "tooltip": true
+  },
+  "network": {
+    "format-disconnected": "Disconnected ⚠",
+    "format-ethernet": "{ipaddr}/{cidr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-wifi": "   {essid} ({signalStrength}%)",
+    "on-click": "kitty -e 'nmtui'",
+    "tooltip-format": "{ifname} via {gwaddr} "
+  },
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{icon} {volume}%  {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-icons": {
+      "car": "",
+      "default": ["", "", ""],
+      "hands-free": "",
+      "headphone": "",
+      "headset": "",
+      "phone": "",
+      "portable": ""
+    },
+    "format-muted": " {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "on-click": "pavucontrol"
+  },
+  "temperature": {
+    "critical-threshold": 100,
+    "format": " {temperatureC}°C",
+    "format-critical": " {temperatureC}",
+    "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
+    "interval": 10
+  }
 }
