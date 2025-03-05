@@ -4,11 +4,17 @@
     "format-alt": "{time}  {icon}",
     "format-charging": "  {capacity}%",
     "format-full": "{icon}  {capacity}%",
-    "format-icons": ["", "", "", "", ""],
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
     "format-plugged": "  {capacity}%",
     "states": {
-      "critical": 15,
-      "warning": 30
+      "critical": 10,
+      "warning": 20
     }
   },
   "battery#bat2": {
@@ -68,7 +74,11 @@
     "format-bluetooth-muted": " {icon} {format_source}",
     "format-icons": {
       "car": "",
-      "default": ["", "", ""],
+      "default": [
+        "",
+        "",
+        ""
+      ],
       "hands-free": "",
       "headphone": "",
       "headset": "",

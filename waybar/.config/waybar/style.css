@@ -1,30 +1,48 @@
 * {
-    /* `otf-font-awesome` and SpaceMono Nerd Font are required to be installed for icons */
-    font-family: CaskaydiaCove Nerd Font Mono;
-    font-size: 15px;
-    transition: background-color 0.1s ease-out;
+  /* `otf-font-awesome` and SpaceMono Nerd Font are required to be installed for icons */
+  font-family: CaskaydiaCove Nerd Font Mono;
+  font-size: 15px;
+  transition: background-color 0.1s ease-out;
 }
 
 window#waybar {
-    background: transparent;
-    color: #ffffff;
-    font-family: CaskaydiaCove Nerd Font Mono;
-    transition: background-color 0.5s;
+  background: transparent;
+  color: #ffffff;
+  font-family: CaskaydiaCove Nerd Font Mono;
+  transition: background-color 0.5s;
 }
 
 .modules-left,
 .modules-center,
 .modules-right {
-    background: rgba(0, 0, 0, 0.7);
-    margin: 5px 10px;
-    padding: 0;
-    border-radius: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  margin: 5px 10px;
+  padding: 0;
+  border-radius: 15px;
 }
 .modules-left {
-    padding: 0;
+  padding: 0;
 }
 .modules-center {
-    padding: 0 10px;
+  padding: 0 10px;
+}
+#battery.critical:not(.charging) {
+  background-color: #f53c3c;
+  color: #eeeeee;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+#battery.warning:not(.charging) {
+  background-color: #f5a524;
+  color: #eeeeee;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #clock,
@@ -45,8 +63,8 @@ window#waybar {
 #power-profiles-daemon,
 #language,
 #mpd {
-    padding: 0 10px;
-    border-radius: 15px;
+  padding: 0 10px;
+  border-radius: 15px;
 }
 
 #clock:hover,
@@ -67,33 +85,33 @@ window#waybar {
 #power-profiles-daemon:hover,
 #language:hover,
 #mpd:hover {
-    background: rgba(26, 27, 38, 0.9);
+  background: rgba(26, 27, 38, 0.9);
 }
 
 #workspaces button {
-    background: transparent;
-    font-family: CaskaydiaCove Nerd Font Mono;
-    font-weight: 900;
-    font-size: 13pt;
-    color: #ffffff;
-    border: none;
-    border-radius: 15px;
+  background: transparent;
+  font-family: CaskaydiaCove Nerd Font Mono;
+  font-weight: 900;
+  font-size: 13pt;
+  color: #ffffff;
+  border: none;
+  border-radius: 15px;
 }
 
 #workspaces button.active {
-    background: #21212b;
+  background: #21212b;
 }
 
 #workspaces button:hover {
-    background: #11111b;
-    color: #ffffff;
-    box-shadow: none;
+  background: #11111b;
+  color: #ffffff;
+  box-shadow: none;
 }
 
 #custom-arch {
-    margin-left: 5px;
-    padding: 0 10px;
-    font-size: 25px;
-    transition: color 0.5s;
-    color: #1793d1;
+  margin-left: 5px;
+  padding: 0 10px;
+  font-size: 25px;
+  transition: color 0.5s;
+  color: #1793d1;
 }
