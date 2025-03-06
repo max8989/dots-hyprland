@@ -1,6 +1,6 @@
 # Hyprland Desktop Setup
 
-![My Wayland Desktop Setup](/images/setup.png)
+![My Wayland Desktop Setup](/images/configs.png)
 
 This repository contains my personal Hyprland desktop environment configuration and setup details.
 
