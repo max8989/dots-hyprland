@@ -4,13 +4,7 @@
     "format-alt": "{time}  {icon}",
     "format-charging": "  {capacity}%",
     "format-full": "{icon}  {capacity}%",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ],
+    "format-icons": ["", "", "", "", ""],
     "format-plugged": "  {capacity}%",
     "states": {
       "critical": 10,
@@ -27,7 +21,8 @@
   },
   "cpu": {
     "format": "  {usage}%",
-    "tooltip": true
+    "tooltip": true,
+    "on-click": "kitty -e 'htop'"
   },
   "custom/arch": {
     "format": "󰣇",
@@ -36,7 +31,8 @@
   },
   "hyprland/language": {
     "format-en": "EN",
-    "format-fr": "FR"
+    "format-fr": "FR",
+    "format-cn": "CN"
   },
   "hyprland/workspaces": {
     "all-outputs": true,
@@ -58,7 +54,8 @@
   },
   "memory": {
     "format": "  {}%",
-    "tooltip": true
+    "tooltip": true,
+    "on-click": "kitty -e 'htop'"
   },
   "network": {
     "format-disconnected": "Disconnected ⚠",
@@ -74,11 +71,7 @@
     "format-bluetooth-muted": " {icon} {format_source}",
     "format-icons": {
       "car": "",
-      "default": [
-        "",
-        "",
-        ""
-      ],
+      "default": ["", "", ""],
       "hands-free": "",
       "headphone": "",
       "headset": "",
@@ -95,6 +88,7 @@
     "format": " {temperatureC}°C",
     "format-critical": " {temperatureC}",
     "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
-    "interval": 10
+    "interval": 10,
+    "on-click": "kitty -e 'htop'"
   }
 }
