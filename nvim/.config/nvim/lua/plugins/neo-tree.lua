@@ -9,6 +9,14 @@ return  {
   lazy = false, -- neo-tree will lazily load itself
   config = function()
     vim.keymap.set('n', '<C-b>', ':Neotree filesystem reveal left<CR>', {})
+    require("neo-tree").setup({
+      filesystem = {
+        filtered_items = {
+          hide_dotfiles = false,
+          hide_gitignored = false,
+        },
+      },
+    })
   end
 }
 
