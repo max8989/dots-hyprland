@@ -30,7 +30,7 @@ return {
         ["<C-E>"] = require("cheatsheet.telescope.actions").edit_user_cheatsheet,
       },
     })
-    
+
     -- Keybinding to open cheatsheet
     vim.keymap.set("n", "<leader>ch", ":Cheatsheet<CR>", { desc = "Open cheatsheet" })
   end,
