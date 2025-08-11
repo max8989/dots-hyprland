@@ -24,5 +24,10 @@ return {
         },
       },
     })
+    
+    -- Fullscreen terminal mapping
+    vim.keymap.set('n', '<C-`>', function()
+      vim.cmd('ToggleTerm direction=float size=100')
+    end, { desc = "Toggle fullscreen terminal" })
   end,
 }
