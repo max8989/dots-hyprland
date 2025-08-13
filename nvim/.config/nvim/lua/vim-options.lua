@@ -7,4 +7,5 @@ vim.g.maplocalleader = "\\"
 
 --Line numbers
 vim.wo.number = true
-
+vim.cmd("set ignorecase")
+vim.cmd("set smartcase")
