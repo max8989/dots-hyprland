@@ -14,7 +14,7 @@ return {
       persist_size = true,
       direction = "horizontal",
       close_on_exit = true,
-      shell = vim.o.shell,
+      shell = vim.fn.has('win32') == 1 and 'powershell' or vim.o.shell,
       float_opts = {
         border = "curved",
         winblend = 0,
