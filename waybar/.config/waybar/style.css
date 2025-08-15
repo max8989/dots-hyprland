@@ -73,6 +73,7 @@ tooltip label {
 #clock,
 #custom-wifi,
 #bluetooth,
+#language,
 #custom-update,
 #mpris,
 #pulseaudio,
@@ -261,6 +262,10 @@ tooltip label {
 }
 #bluetooth:hover {
   color: @hover-fg;
+}
+
+#language {
+  background: @tray;
 }
 
 #custom-update {
