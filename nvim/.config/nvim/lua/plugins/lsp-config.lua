@@ -11,7 +11,7 @@ return {
 		lazy = false,
 		opts = {
 			auto_install = true,
-			ensure_installed = { "lua_ls" },
+			ensure_installed = { "lua_ls", "ts_ls", "eslint", "emmet_ls", "cssls", "tailwindcss" },
 		},
 	},
 	{
@@ -23,6 +23,50 @@ return {
 			local lspconfig = require("lspconfig")
 			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
+				filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+				settings = {
+					typescript = {
+						inlayHints = {
+							includeInlayParameterNameHints = "all",
+							includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+							includeInlayFunctionParameterTypeHints = true,
+							includeInlayVariableTypeHints = true,
+							includeInlayPropertyDeclarationTypeHints = true,
+							includeInlayFunctionLikeReturnTypeHints = true,
+							includeInlayEnumMemberValueHints = true,
+						},
+					},
+					javascript = {
+						inlayHints = {
+							includeInlayParameterNameHints = "all",
+							includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+							includeInlayFunctionParameterTypeHints = true,
+							includeInlayVariableTypeHints = true,
+							includeInlayPropertyDeclarationTypeHints = true,
+							includeInlayFunctionLikeReturnTypeHints = true,
+							includeInlayEnumMemberValueHints = true,
+						},
+					},
+				},
+			})
+			lspconfig.eslint.setup({
+				capabilities = capabilities,
+				filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+				settings = {
+					workingDirectory = { mode = "auto" },
+				},
+			})
+			lspconfig.emmet_ls.setup({
+				capabilities = capabilities,
+				filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
+			})
+			lspconfig.cssls.setup({
+				capabilities = capabilities,
+				filetypes = { "css", "scss", "less" },
+			})
+			lspconfig.tailwindcss.setup({
+				capabilities = capabilities,
+				filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact" },
 			})
 			lspconfig.solargraph.setup({
 				capabilities = capabilities,
