@@ -12,6 +12,38 @@ return {
     require("dap-go").setup()
     require("dapui").setup()
 
+    -- .NET Core debugging configuration
+    dap.adapters.coreclr = {
+      type = 'executable',
+      command = 'netcoredbg',
+      args = {'--interpreter=vscode'}
+    }
+
+    dap.configurations.cs = {
+      {
+        type = "coreclr",
+        name = "launch - netcoredbg",
+        request = "launch",
+        program = function()
+          return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '/bin/Debug/', 'file')
+        end,
+        cwd = '${workspaceFolder}',
+        stopAtEntry = false,
+        console = "internalConsole",
+      },
+      {
+        type = "coreclr",
+        name = "launch with stop at entry",
+        request = "launch",
+        program = function()
+          return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '/bin/Debug/', 'file')
+        end,
+        cwd = '${workspaceFolder}',
+        stopAtEntry = true,
+        console = "internalConsole",
+      },
+    }
+
     dap.listeners.after.event_initialized["dapui_config"] = function()
       dapui.open()
     end
@@ -25,5 +57,8 @@ return {
     vim.keymap.set("n", "<Leader>dt", ':DapToggleBreakpoint<CR>')
     vim.keymap.set("n", "<Leader>dx", ':DapTerminate<CR>')
     vim.keymap.set("n", "<Leader>do", ':DapStepOver<CR>')
+    vim.keymap.set("n", "<Leader>di", ':DapStepInto<CR>')
+    vim.keymap.set("n", "<Leader>dc", ':DapContinue<CR>')
+    vim.keymap.set("n", "<Leader>dr", ':DapToggleRepl<CR>')
   end
 }
