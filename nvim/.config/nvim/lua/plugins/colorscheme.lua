@@ -40,5 +40,14 @@ return {
       require("nightfox").setup()
       vim.cmd.colorscheme "nightfox"
     end
+  },
+  {
+    "EdenEast/nightfox.nvim",
+    name = "carbonfox",
+    priority = 300,
+    config = function()
+      require("nightfox").setup()
+      vim.cmd.colorscheme "carbonfox"
+    end
   }
 }

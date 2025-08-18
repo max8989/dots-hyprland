@@ -2,6 +2,7 @@
 
 ![My Wayland Desktop Setup](/images/configs.png)
 
+## Screenshots
 This repository contains my personal Hyprland desktop environment configuration and setup details.
 
 ## Overview
@@ -78,3 +79,12 @@ Run the install script to automatically install all required packages:
 - **Integrated terminal** and git workflow
 - **Debug support** for multiple languages
 - **Modern UI** with proper theming
+
+### Neovim
+![Neovim Dashboard](/images/nvim-home.png)
+
+![Neovim Installation Script](/images/nvim-editor.png)
+
+![File Tree View](/images/nvim-telescope.png)
+
+
