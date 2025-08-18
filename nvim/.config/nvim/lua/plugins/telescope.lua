@@ -91,7 +91,8 @@ return {
               local selection = require('telescope.actions.state').get_selected_entry()
               require('telescope.actions').close(prompt_bufnr)
               if selection.value[3] ~= "" then
-                -- Copy the keybinding to clipboard
+                -- Copy the keybinding to system clipboard (Linux style)
+                vim.fn.setreg('"', selection.value[3])
                 vim.fn.setreg('+', selection.value[3])
                 print("Copied: " .. selection.value[3])
               end

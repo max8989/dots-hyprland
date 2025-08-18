@@ -24,6 +24,7 @@ This is my minimalist and functional Hyprland-based desktop environment running 
 - **Notifications**: Swaync
 - **Screenshots**: Hyprshot + wl-clipboard
 - **Color Picker**: Hyprpicker
+- **Text Editor**: Neovim with Lazy.nvim plugin manager
 
 ## Getting Started
 
@@ -42,3 +43,38 @@ This is my minimalist and functional Hyprland-based desktop environment running 
 - `~/.config/waybar/` - Waybar status bar
 - `~/.config/wofi/` - Application launcher
 - `~/.config/swaync/` - Notification daemon
+- `~/.config/nvim/` - Neovim editor configuration
+
+## Neovim Configuration
+
+This setup includes a fully configured Neovim environment with the following features:
+
+### Plugins Included
+- **Lazy.nvim** - Modern plugin manager
+- **Telescope** - Fuzzy finder with live grep and file search
+- **LSP Configuration** - Language servers for TypeScript, JavaScript, Lua, CSS, HTML, and more
+- **nvim-cmp** - Autocompletion with LSP integration
+- **Treesitter** - Advanced syntax highlighting and parsing
+- **Mason** - LSP server installer and manager
+- **Lualine** - Status line
+- **Neo-tree** - File explorer
+- **LazyGit** - Git integration
+- **ToggleTerm** - Terminal integration
+- **DAP** - Debug Adapter Protocol support
+- **Alpha** - Dashboard/start screen
+- **Custom cheat sheet** - Searchable keybinding reference
+
+### Required System Packages
+Run the install script to automatically install all required packages:
+```bash
+./install-nvim.sh
+```
+
+### Key Features
+- **Fuzzy file finding** with `<C-p>`
+- **Live grep search** with `<leader>fg`
+- **LSP-powered autocompletion** and code intelligence
+- **Custom cheat sheet** accessible with `<leader>cs`
+- **Integrated terminal** and git workflow
+- **Debug support** for multiple languages
+- **Modern UI** with proper theming
