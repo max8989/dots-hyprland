@@ -13,6 +13,8 @@ Leader key: `<Space>`
 | File Navigation & Search | `<leader>bb` | Open buffers |
 | File Explorer | `<C-n>` | Toggle file tree |
 | File Explorer | `<C-b>` | Reveal current file in tree |
+| Window Navigation | `<C-w>h` | Move to left window |
+| Window Navigation | `<C-w>l` | Move to right window |
 | Terminal | `<C-`>` | Toggle terminal |
 | LSP | `K` | Show hover documentation |
 | LSP | `<leader>gd` | Go to definition |
