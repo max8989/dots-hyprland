@@ -39,88 +39,49 @@ return {
       vim.keymap.set("n", "<leader><leader>", builtin.oldfiles, {})
       vim.keymap.set("n", "<leader>bb", builtin.buffers, {})
       vim.keymap.set("n", "<leader>cs", function()
-        local cheatsheet_data = {
-          -- Buffer Management
-          { "● Buffer Management", "", "header" },
-          { "Next buffer", "<Tab>", "key" },
-          { "Previous buffer", "<S-Tab>", "key" },
-          { "Delete current buffer", "<leader>bd", "key" },
-          { "", "", "separator" },
-          
-          -- File Navigation
-          { "● File Navigation & Search", "", "header" },
-          { "Find files", "<C-p>", "key" },
-          { "Live grep (search text)", "<leader>fg", "key" },
-          { "Recent files", "<leader><leader>", "key" },
-          { "Open buffers", "<leader>bb", "key" },
-          { "", "", "separator" },
-          
-          -- File Explorer
-          { "● File Explorer", "", "header" },
-          { "Toggle file tree", "<C-n>", "key" },
-          { "Reveal current file in tree", "<C-b>", "key" },
-          { "", "", "separator" },
-          
-          -- Terminal
-          { "● Terminal", "", "header" },
-          { "Toggle terminal", "<C-`>", "key" },
-          { "", "", "separator" },
-          
-          -- LSP
-          { "● LSP (Language Server)", "", "header" },
-          { "Show hover documentation", "K", "key" },
-          { "Go to definition", "<leader>gd", "key" },
-          { "Find references", "<leader>gr", "key" },
-          { "Code actions", "<leader>ca", "key" },
-          { "Format code", "<leader>gf", "key" },
-          { "", "", "separator" },
-          
-          -- Debugging
-          { "● Debugging (DAP)", "", "header" },
-          { "Toggle breakpoint", "<leader>dt", "key" },
-          { "Start/Continue debugging", "<leader>dc", "key" },
-          { "Terminate debugger", "<leader>dx", "key" },
-          { "Step over", "<leader>do", "key" },
-          { "Step into", "<leader>di", "key" },
-          { "Toggle REPL", "<leader>dr", "key" },
-          { "", "", "separator" },
-          
-          -- Markdown
-          { "● Markdown", "", "header" },
-          { "Toggle markdown preview", "<leader>mp", "key" },
-          { "", "", "separator" },
-          
-          -- Command Line
-          { "● Command Line", "", "header" },
-          { "Enhanced command mode", ":", "key" },
-          { "", "", "separator" },
-          
-          -- Cheat Sheet
-          { "● Cheat Sheet", "", "header" },
-          { "Open built-in cheatsheet", "<leader>ch", "key" },
-          { "Open this custom cheat sheet", "<leader>cs", "key" },
-        }
+        local cheat_file = vim.fn.stdpath("config") .. "/cheat-sheet.md"
+        local lines = vim.fn.readfile(cheat_file)
+        local cheatsheet_data = {}
+        
+        local current_section = ""
+        for _, line in ipairs(lines) do
+          if line:match("^|%s*Section") then
+            -- Skip header row
+          elseif line:match("^|%-") then
+            -- Skip separator row
+          elseif line:match("^|") then
+            -- Parse table row
+            local section, keybinding, description = line:match("^|%s*(.-)%s*|%s*`?(.-)`?%s*|%s*(.-)%s*|")
+            if section and keybinding and description then
+              if section ~= current_section and current_section ~= "" then
+                table.insert(cheatsheet_data, { "", "", "", "separator" })
+              end
+              current_section = section
+              if keybinding ~= "" then
+                table.insert(cheatsheet_data, { section, description, keybinding, "key" })
+              end
+            end
+          end
+        end
 
         require('telescope.pickers').new({}, {
           prompt_title = "Custom Cheat Sheet",
           finder = require('telescope.finders').new_table({
             results = cheatsheet_data,
             entry_maker = function(entry)
-              local desc, key, type = entry[1], entry[2], entry[3]
+              local section, desc, key, type = entry[1], entry[2], entry[3], entry[4]
               local display
               
-              if type == "header" then
-                display = string.format("%-45s", desc)
-              elseif type == "separator" then
+              if type == "separator" then
                 display = ""
               else
-                display = string.format("  %-43s %s", desc, key)
+                display = string.format("%-20s  %-35s %s", section, desc, key)
               end
               
               return {
                 value = entry,
                 display = display,
-                ordinal = desc .. " " .. key,
+                ordinal = section .. " " .. desc .. " " .. key,
               }
             end,
           }),
@@ -129,10 +90,10 @@ return {
             map('i', '<CR>', function()
               local selection = require('telescope.actions.state').get_selected_entry()
               require('telescope.actions').close(prompt_bufnr)
-              if selection.value[2] ~= "" and selection.value[3] == "key" then
+              if selection.value[3] ~= "" then
                 -- Copy the keybinding to clipboard
-                vim.fn.setreg('+', selection.value[2])
-                print("Copied: " .. selection.value[2])
+                vim.fn.setreg('+', selection.value[3])
+                print("Copied: " .. selection.value[3])
               end
             end)
             return true
