@@ -39,10 +39,10 @@ Leader key: `<Space>`
 - `<leader>mp` - Toggle markdown preview
 
 ## Command Line
-- `:` - Fine command line (enhanced command mode)
+- `:` - Enhanced command mode
 
 ## Cheat Sheet
-- `<leader>ch` - Open cheatsheet
+- `<leader>ch` - Open built-in cheatsheet
 - `<leader>cs` - Open this custom cheat sheet
 
 ## Telescope Extensions
