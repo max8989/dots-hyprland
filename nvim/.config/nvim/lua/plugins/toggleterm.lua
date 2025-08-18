@@ -14,6 +14,10 @@ return {
       persist_size = true,
       direction = "horizontal",
       close_on_exit = true,
+      auto_scroll = true,
+      on_exit = function()
+        vim.cmd("checktime")
+      end,
       shell = vim.fn.has('win32') == 1 and 'powershell' or vim.o.shell,
       float_opts = {
         border = "curved",
@@ -24,10 +28,17 @@ return {
         },
       },
     })
-    
+
     -- Fullscreen terminal mapping
     vim.keymap.set('n', '<C-`>', function()
       vim.cmd('ToggleTerm direction=float size=100')
     end, { desc = "Toggle fullscreen terminal" })
+
+    -- Force quit terminals on exit
+    vim.api.nvim_create_autocmd("VimLeavePre", {
+      callback = function()
+        vim.cmd("TermClose!")
+      end,
+    })
   end,
 }
