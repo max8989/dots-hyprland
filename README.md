@@ -2,7 +2,7 @@
 
 ![Hyprland Desktop Setup](/images/desktop-config.gif)
 
-## Neovim Configurations
+## NeoVim Configurations
 ![Neovim Configuration](/images/neovim-configs.png)
 
 ## 💻 Hardware Specs
