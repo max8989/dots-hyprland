@@ -1,90 +1,223 @@
-# Hyprland Desktop Setup
+# Hyprland Desktop Configuration
 
-![My Wayland Desktop Setup](/images/configs.png)
+![Hyprland Desktop Setup](/images/configs.png)
 
-## Screenshots
-This repository contains my personal Hyprland desktop environment configuration and setup details.
+A complete Wayland desktop environment configuration featuring Hyprland window manager, optimized for development workflows on Arch Linux.
 
-## Overview
+## ✨ Features
 
-This is my minimalist and functional Hyprland-based desktop environment running on Arch Linux. The setup prioritizes efficiency and a clean aesthetic while maintaining full functionality for daily development work.
+- **Modern Wayland Desktop**: Full Hyprland setup with smooth animations and gestures
+- **Development-Ready**: Comprehensive Neovim configuration with LSP, debugging, and Git integration  
+- **Theme System**: Multiple Catppuccin and Gruvbox theme variants with dynamic switching
+- **Professional Workflow**: Integrated terminal, launcher, notifications, and system monitoring
+- **GNU Stow Management**: Clean, organized dotfile deployment system
 
-## Installation
+## 🖥️ Components
 
-**The complete list of packages and installation script can be found in my Arch Linux setup repository:**
-**[arch-linux-setup](https://github.com/max8989/arch-linux-setup)**
+| Component | Tool | Description |
+|-----------|------|-------------|
+| **Window Manager** | Hyprland | Tiling window manager with animations |
+| **Status Bar** | Waybar | Customizable bar with system monitoring |
+| **Terminal** | Kitty | GPU-accelerated terminal with transparency |
+| **Editor** | Neovim | Full IDE setup with Lazy.nvim plugin manager |
+| **Launcher** | Wofi | Application launcher and menu system |
+| **Notifications** | SwayNC | Notification daemon with action center |
+| **Lock Screen** | Hyprlock | Secure screen locking with blur effects |
+| **Wallpapers** | Hyprpaper | Dynamic wallpaper management |
+| **Audio** | PipeWire | Modern audio server configuration |
 
-## Components
+## 🚀 Quick Start
 
-- **Window Manager**: Hyprland
-- **Display Protocol**: Wayland
-- **Operating System**: Arch Linux
-- **Status Bar**: Waybar
-- **Terminal**: Kitty
-- **Application Launcher**: Wofi
-- **Notifications**: Swaync
-- **Screenshots**: Hyprshot + wl-clipboard
-- **Color Picker**: Hyprpicker
-- **Text Editor**: Neovim with Lazy.nvim plugin manager
+### Prerequisites
+- **Arch Linux** (or Arch-based distribution)
+- **yay** AUR helper
+- **GNU Stow** for dotfile management
 
-## Getting Started
+### Installation
 
-1. **First, install Arch Linux** following the official guide
-2. **Clone the arch-linux-setup repository**
-3. **Run the installation script** to set up all required packages
-4. **Clone this repository to your home directory (`~/`)**
-5. **Run `stow */`** in the repository directory to create symbolic links
-6. **Configure your environment** using the provided configuration files
+1. **Clone this repository:**
+```bash
+git clone <your-repo-url> ~/.dotfiles
+cd ~/.dotfiles
+```
 
-## Configuration Files
-
-**The configuration files (dotfiles) for the following components are included:**
-
-- `~/.config/hypr/` - Hyprland configuration
-- `~/.config/waybar/` - Waybar status bar
-- `~/.config/wofi/` - Application launcher
-- `~/.config/swaync/` - Notification daemon
-- `~/.config/nvim/` - Neovim editor configuration
-
-## Neovim Configuration
-
-This setup includes a fully configured Neovim environment with the following features:
-
-### Plugins Included
-- **Lazy.nvim** - Modern plugin manager
-- **Telescope** - Fuzzy finder with live grep and file search
-- **LSP Configuration** - Language servers for TypeScript, JavaScript, Lua, CSS, HTML, and more
-- **nvim-cmp** - Autocompletion with LSP integration
-- **Treesitter** - Advanced syntax highlighting and parsing
-- **Mason** - LSP server installer and manager
-- **Lualine** - Status line
-- **Neo-tree** - File explorer
-- **LazyGit** - Git integration
-- **ToggleTerm** - Terminal integration
-- **DAP** - Debug Adapter Protocol support
-- **Alpha** - Dashboard/start screen
-- **Custom cheat sheet** - Searchable keybinding reference
-
-### Required System Packages
-Run the install script to automatically install all required packages:
+2. **Install Neovim environment:**
 ```bash
 ./install-nvim.sh
 ```
 
-### Key Features
-- **Fuzzy file finding** with `<C-p>`
-- **Live grep search** with `<leader>fg`
-- **LSP-powered autocompletion** and code intelligence
-- **Custom cheat sheet** accessible with `<leader>cs`
-- **Integrated terminal** and git workflow
-- **Debug support** for multiple languages
-- **Modern UI** with proper theming
+3. **Deploy configurations:**
+```bash
+# Deploy all configurations
+stow */
 
-### Neovim
+# Or deploy specific components
+stow hyprland waybar kitty nvim
+```
+
+4. **Verify setup:**
+```bash
+# Check Neovim health
+nvim +checkhealth
+
+# Test Hyprland (logout and select Hyprland session)
+```
+
+## 📁 Repository Structure
+
+```
+~/.dotfiles/
+├── backgrounds/     # Wallpaper collection
+├── hyprland/       # Window manager config
+├── hyprlock/       # Lock screen settings  
+├── hyprpaper/      # Wallpaper management
+├── kitty/          # Terminal configuration
+├── nvim/           # Neovim development environment
+├── pipewire/       # Audio system config
+├── rofi/           # Alternative launcher (legacy)
+├── scripts/        # System utility scripts
+├── starship/       # Shell prompt configuration
+├── waybar/         # Status bar with themes
+├── wlogout/        # Logout menu
+├── wofi/           # Application launcher
+└── install-nvim.sh # Neovim setup script
+```
+
+## 🛠️ Development Environment
+
+### Neovim Configuration
+
+Complete IDE experience powered by modern Neovim plugins:
+
+**Core Features:**
+- **Plugin Manager**: Lazy.nvim with lazy loading
+- **LSP Integration**: Mason for server management + nvim-lspconfig  
+- **Completion**: nvim-cmp with snippet support
+- **Fuzzy Finding**: Telescope for files and live grep
+- **File Explorer**: Neo-tree with Git integration
+- **Debugging**: DAP support for multiple languages
+- **Git Workflow**: LazyGit integration
+- **Custom Cheatsheet**: Searchable keybinding reference
+
+**Key Bindings:**
+- `<Space>` - Leader key
+- `<C-p>` - Find files (Telescope)
+- `<leader>fg` - Live grep search
+- `<C-n>` - Toggle file explorer
+- `<leader>ch` - Open cheatsheet
+- `<Tab>` / `<S-Tab>` - Navigate buffers
+
+### Language Support
+Pre-configured LSP servers for:
+- **Web**: TypeScript, JavaScript, HTML, CSS
+- **Systems**: Lua, Bash, Python
+- **Markup**: Markdown, JSON, YAML
+
 ![Neovim Dashboard](/images/nvim-home.png)
 
-![Neovim Installation Script](/images/nvim-editor.png)
+## 🎨 Theming
 
-![File Tree View](/images/nvim-telescope.png)
+### Available Themes
+**Catppuccin Variants:**
+- Mocha (dark)
+- Macchiato (dark)
+- Frappe (dark) 
+- Latte (light)
 
+**Gruvbox Variants:**
+- Dark
+- Light
 
+### Theme Management
+```bash
+# Switch themes using waybar scripts
+~/.config/waybar/scripts/theme-switcher.sh
+
+# Themes are automatically applied to:
+# - Waybar, Kitty, Hyprland, Wofi, Rofi
+```
+
+## 🔧 Customization
+
+### Waybar Modules
+Located in `waybar/.config/waybar/`:
+- **System Monitoring**: CPU temp, memory, battery
+- **Network**: WiFi status and controls  
+- **Audio**: Volume control with PipeWire
+- **Power**: Battery with charging status
+- **Workspaces**: Hyprland workspace integration
+
+### Custom Scripts
+Available in `scripts/.config/scripts/`:
+- `battery.sh` - Battery status reporting
+- `power.sh` - Power management menu
+- `screen_record.sh` - Screen recording utility
+- `workspace_action.sh` - Workspace automation
+
+### Hyprland Configuration
+- **Animations**: Smooth window transitions
+- **Gestures**: Touchpad gesture support
+- **Keybindings**: Optimized for productivity
+- **Multi-monitor**: Dynamic display configuration
+
+## 📋 System Requirements
+
+### Essential Packages
+**Core System:**
+```
+hyprland waybar kitty wofi swaync
+hyprlock hyprpaper hypridle hyprshot
+neovim git curl wget ripgrep fd
+```
+
+**Development Tools:**
+```
+nodejs npm python python-pip
+lazygit debugpy netcoredbg
+```
+
+**Audio/Media:**
+```
+pipewire pipewire-pulse pipewire-alsa
+wl-clipboard cliphist
+```
+
+### Optional Dependencies
+- **Fonts**: CaskaydiaCove Nerd Font, Figtree
+- **Cursors**: Catppuccin cursor themes  
+- **Icons**: Papirus or similar icon pack
+
+## 🔍 Troubleshooting
+
+**Common Issues:**
+
+1. **Stow conflicts**: Remove existing dotfiles before stowing
+2. **Missing dependencies**: Run `./install-nvim.sh` first
+3. **LSP not working**: Check `:Mason` in Neovim
+4. **Audio issues**: Verify PipeWire is running
+5. **Theme not applying**: Check waybar script permissions
+
+**Debug Commands:**
+```bash
+# Check Hyprland logs
+journalctl -f -u hyprland
+
+# Verify stow links  
+stow -n -v */ 
+
+# Test Neovim health
+nvim +checkhealth
+```
+
+## 📸 Screenshots
+
+| Feature | Preview |
+|---------|---------|
+| **Neovim IDE** | ![Neovim Editor](/images/nvim-editor.png) |
+| **File Navigation** | ![Telescope](/images/nvim-telescope.png) |
+
+---
+
+**Installation Guide**: For complete system setup, see [arch-linux-setup](https://github.com/max8989/arch-linux-setup)
+
+**License**: Personal configuration - adapt as needed for your setup

@@ -9,6 +9,7 @@ vim.g.maplocalleader = "\\"
 vim.wo.number = true
 vim.cmd("set ignorecase")
 vim.cmd("set smartcase")
+vim.opt.confirm = false
 
 --Buffer navigation
 vim.keymap.set('n', '<Tab>', ':bnext<CR>', { silent = true })
