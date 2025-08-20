@@ -1,6 +1,6 @@
 # Hyprland Desktop Configuration
 
-![Hyprland Desktop Setup](/images/configs.png)
+![Hyprland Desktop Setup](/images/desktop-config.gif)
 
 A complete Wayland desktop environment configuration featuring Hyprland window manager, optimized for development workflows on Arch Linux.
 
