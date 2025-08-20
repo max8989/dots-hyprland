@@ -2,6 +2,8 @@
 
 ![Hyprland Desktop Setup](/images/desktop-config.gif)
 
+![Neovim Configuration](/images/neovim-configs.png)
+
 ## 💻 Hardware Specs
 Running on a **ThinkPad X1 Carbon 7th Gen** with Intel i7-8565U (8 cores @ 4.6GHz), 16GB RAM, and Intel UHD Graphics 620 at 2560x1440 resolution.
 
@@ -116,7 +118,6 @@ Pre-configured LSP servers for:
 - **Systems**: Lua, Bash, Python
 - **Markup**: Markdown, JSON, YAML
 
-![Neovim Dashboard](/images/nvim-home.png)
 
 ## 🎨 Theming
 
@@ -213,11 +214,6 @@ nvim +checkhealth
 ```
 
 ## 📸 Screenshots
-
-| Feature | Preview |
-|---------|---------|
-| **Neovim IDE** | ![Neovim Editor](/images/nvim-editor.png) |
-| **File Navigation** | ![Telescope](/images/nvim-telescope.png) |
 
 ---
 
