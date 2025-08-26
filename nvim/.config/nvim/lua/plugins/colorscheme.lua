@@ -1,11 +1,32 @@
 return {
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "scottmckendry/cyberdream.nvim",
+    lazy = false,
     priority = 1000,
     config = function()
+      require("cyberdream").setup({
+        transparent = false,
+        italic_comments = true,
+        hide_fillchars = true,
+        borderless_telescope = true,
+        terminal_colors = true,
+        theme = {
+          variant = "default", -- use "light" for light mode
+          highlights = {
+            -- Custom highlights can be added here
+          }
+        },
+      })
+      vim.cmd.colorscheme "cyberdream"
+    end,
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 900,
+    config = function()
       require("catppuccin").setup({
-        transparent_background = true,
+        transparent_background = false,
         show_end_of_buffer = false,
         term_colors = true,
         dim_inactive = {
@@ -22,57 +43,53 @@ return {
           mini = false,
         },
       })
-      vim.cmd.colorscheme "catppuccin"
     end
   },
   {
     "folke/tokyonight.nvim",
-    priority = 900,
+    priority = 800,
     config = function()
       require("tokyonight").setup({
-        transparent = true,
+        transparent = false,
         styles = {
-          sidebars = "transparent",
-          floats = "transparent",
+          sidebars = "dark",
+          floats = "dark",
         },
       })
-      vim.cmd.colorscheme "tokyonight"
     end
   },
   {
     "rose-pine/neovim",
     name = "rose-pine",
-    priority = 800,
+    priority = 700,
     config = function()
       require("rose-pine").setup({
-        disable_background = true,
-        disable_float_background = true,
+        disable_background = false,
+        disable_float_background = false,
       })
-      vim.cmd.colorscheme "rose-pine"
     end
   },
   {
     "rebelot/kanagawa.nvim",
-    priority = 500,
+    priority = 600,
     config = function()
       require("kanagawa").setup({
-        transparent = true,
+        transparent = false,
         theme = "wave",
         background = {
           dark = "wave",
           light = "lotus"
         },
       })
-      vim.cmd.colorscheme "kanagawa"
     end
   },
   {
     "EdenEast/nightfox.nvim",
-    priority = 400,
+    priority = 500,
     config = function()
       require("nightfox").setup({
         options = {
-          transparent = true,
+          transparent = false,
           styles = {
             comments = "italic",
             keywords = "bold",
@@ -80,17 +97,16 @@ return {
           }
         }
       })
-      vim.cmd.colorscheme "nightfox"
     end
   },
   {
     "EdenEast/nightfox.nvim",
     name = "carbonfox",
-    priority = 300,
+    priority = 400,
     config = function()
       require("nightfox").setup({
         options = {
-          transparent = true,
+          transparent = false,
           styles = {
             comments = "italic",
             keywords = "bold",
@@ -98,7 +114,6 @@ return {
           }
         }
       })
-      vim.cmd.colorscheme "carbonfox"
     end
   }
 }

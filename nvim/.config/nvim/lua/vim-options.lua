@@ -11,10 +11,37 @@ vim.cmd("set ignorecase")
 vim.cmd("set smartcase")
 vim.opt.confirm = false
 
---Buffer navigation
-vim.keymap.set('n', '<Tab>', ':bnext<CR>', { silent = true })
-vim.keymap.set('n', '<S-Tab>', ':bprev<CR>', { silent = true })
-vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { silent = true })
+-- Buffer navigation keybindings
+-- Commented out in favor of bufferline navigation (using <S-h> and <S-l>)
+-- vim.keymap.set('n', '<Tab>', ':bnext<CR>', { silent = true })     -- Move to next buffer
+-- vim.keymap.set('n', '<S-Tab>', ':bprev<CR>', { silent = true })   -- Move to previous buffer
+
+-- Smart buffer delete that maintains window layout
+vim.keymap.set('n', '<leader>bd', function()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local windows = vim.fn.getbufinfo(bufnr)[1].windows
+  
+  -- If buffer is displayed in multiple windows, just switch buffers
+  if #windows > 1 then
+    vim.cmd('bprevious')
+  else
+    -- Get list of all listed buffers
+    local buffers = vim.tbl_filter(function(b)
+      return vim.bo[b].buflisted
+    end, vim.api.nvim_list_bufs())
+    
+    -- If this is the last buffer, create a new empty one
+    if #buffers == 1 then
+      vim.cmd('enew')
+    else
+      -- Switch to previous buffer before deleting
+      vim.cmd('bprevious')
+    end
+  end
+  
+  -- Delete the buffer
+  vim.cmd('bdelete! ' .. bufnr)
+end, { silent = true, desc = 'Delete current buffer (smart)' })
 
 -- Transparency settings
 vim.opt.pumblend = 15

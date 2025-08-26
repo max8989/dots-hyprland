@@ -54,11 +54,25 @@ return {
       dapui.close()
     end
 
+    vim.keymap.set("n", "<F5>", ':DapContinue<CR>')
+    vim.keymap.set("n", "<F9>", ':DapToggleBreakpoint<CR>')
+    vim.keymap.set("n", "<F10>", ':DapStepOver<CR>')
+    vim.keymap.set("n", "<F11>", ':DapStepInto<CR>')
+    vim.keymap.set("n", "<S-F11>", ':DapStepOut<CR>')
+    vim.keymap.set("n", "<C-F5>", ':DapRestart<CR>')
+    vim.keymap.set("n", "<S-F5>", ':DapTerminate<CR>')
     vim.keymap.set("n", "<Leader>dt", ':DapToggleBreakpoint<CR>')
     vim.keymap.set("n", "<Leader>dx", ':DapTerminate<CR>')
     vim.keymap.set("n", "<Leader>do", ':DapStepOver<CR>')
     vim.keymap.set("n", "<Leader>di", ':DapStepInto<CR>')
     vim.keymap.set("n", "<Leader>dc", ':DapContinue<CR>')
     vim.keymap.set("n", "<Leader>dr", ':DapToggleRepl<CR>')
+    vim.keymap.set("n", "<Leader>db", ':DapToggleBreakpoint<CR>')
+    vim.keymap.set("n", "<Leader>dB", function()
+      require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))
+    end)
+    vim.keymap.set("n", "<Leader>dl", function()
+      require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))
+    end)
   end
 }
