@@ -1,13 +1,12 @@
-return {
-  { "scottmckendry/cyberdream.nvim",
+return { { "scottmckendry/cyberdream.nvim",
     lazy = false,
     priority = 1000,
     config = function()
       require("cyberdream").setup({
         transparent = false,
         italic_comments = true,
-        hide_fillchars = true,
-        borderless_telescope = true,
+        hide_fillchars = false,
+        borderless_telescope = false,
         terminal_colors = true,
         theme = {
           variant = "default", -- use "light" for light mode
