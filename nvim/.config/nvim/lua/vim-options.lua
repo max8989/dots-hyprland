@@ -7,6 +7,7 @@ vim.g.maplocalleader = "\\"
 
 --Line numbers
 vim.wo.number = true
+vim.wo.relativenumber = true
 vim.cmd("set ignorecase")
 vim.cmd("set smartcase")
 vim.opt.confirm = false
@@ -84,3 +85,17 @@ vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
 
 -- Clear search highlighting with Escape
 vim.keymap.set('n', '<Esc>', ':nohlsearch<CR>', { silent = true })
+
+-- Map jk and kj to Escape in all modes
+vim.keymap.set('i', 'jk', '<Esc>', { silent = true, desc = 'Exit insert mode' })
+vim.keymap.set('i', 'kj', '<Esc>', { silent = true, desc = 'Exit insert mode' })
+vim.keymap.set('v', 'jk', '<Esc>', { silent = true, desc = 'Exit visual mode' })
+vim.keymap.set('v', 'kj', '<Esc>', { silent = true, desc = 'Exit visual mode' })
+vim.keymap.set('x', 'jk', '<Esc>', { silent = true, desc = 'Exit visual mode' })
+vim.keymap.set('x', 'kj', '<Esc>', { silent = true, desc = 'Exit visual mode' })
+vim.keymap.set('s', 'jk', '<Esc>', { silent = true, desc = 'Exit select mode' })
+vim.keymap.set('s', 'kj', '<Esc>', { silent = true, desc = 'Exit select mode' })
+vim.keymap.set('c', 'jk', '<C-c>', { silent = true, desc = 'Exit command mode' })
+vim.keymap.set('c', 'kj', '<C-c>', { silent = true, desc = 'Exit command mode' })
+vim.keymap.set('t', 'jk', '<C-\\><C-n>', { silent = true, desc = 'Exit terminal mode' })
+vim.keymap.set('t', 'kj', '<C-\\><C-n>', { silent = true, desc = 'Exit terminal mode' })
