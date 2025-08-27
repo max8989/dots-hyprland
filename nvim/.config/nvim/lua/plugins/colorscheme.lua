@@ -24,7 +24,6 @@ return {
           cmp = true,
           gitsigns = true,
           lazy = true,
-          lualine = true,
           treesitter = true,
         },
       })
