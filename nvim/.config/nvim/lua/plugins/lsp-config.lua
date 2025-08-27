@@ -11,7 +11,7 @@ return {
 		lazy = false,
 		opts = {
 			auto_install = true,
-			ensure_installed = { "lua_ls", "ts_ls", "eslint", "emmet_ls", "cssls", "tailwindcss" },
+			ensure_installed = { "lua_ls", "ts_ls", "eslint", "emmet_ls", "cssls", "tailwindcss", "omnisharp" },
 		},
 	},
 	{

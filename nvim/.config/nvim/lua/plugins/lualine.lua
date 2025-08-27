@@ -3,8 +3,13 @@ return {
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
     require('lualine').setup({
-      option = {
+      options = {
         theme = 'dracula'
+      },
+      sections = {
+        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' }
       }
     })
   end
