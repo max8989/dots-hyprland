@@ -62,6 +62,20 @@ vim.api.nvim_create_autocmd("FileChangedShellPost", {
   command = "echohl WarningMsg | echo 'File changed on disk. Buffer reloaded.' | echohl None",
 })
 
+-- Split settings for visible separators
+vim.opt.fillchars = {
+  vert = '│',     -- Vertical split separator
+  horiz = '─',    -- Horizontal split separator  
+  horizup = '┴',
+  horizdown = '┬',
+  vertleft = '┤',
+  vertright = '├',
+  verthoriz = '┼'
+}
+
+-- Highlight the split lines
+vim.cmd("highlight WinSeparator guifg=#44475a guibg=NONE")
+
 -- Navigate vim panes better
 vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
 vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')

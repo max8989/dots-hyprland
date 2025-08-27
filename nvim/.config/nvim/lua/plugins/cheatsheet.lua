@@ -32,6 +32,6 @@ return {
     })
 
     -- Keybinding to open cheatsheet
-    vim.keymap.set("n", "<leader>ch", ":Cheatsheet<CR>", { desc = "Open cheatsheet" })
+    vim.keymap.set("n", "<leader>cs", ":Cheatsheet<CR>", { desc = "Open cheatsheet" })
   end,
 }

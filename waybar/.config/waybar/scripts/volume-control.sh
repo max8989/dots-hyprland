@@ -32,37 +32,24 @@ icon() {
 }
 
 send_notification() {
-  icon
-  notify-send -a "state" -r 91190 -i "$icon" -h int:value:"$vol" "Volume: ${vol}%" -u low
+  # SwayOSD handles the visual feedback automatically
+  swayosd-client --output-volume raise 0
 }
 
 notify_mute() {
-  mute=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
-  if [ "$mute" = "yes" ]; then
-    notify-send -a "state" -r 91190 -i "volume-level-muted" "Volume: Muted" -u low
-  else
-    icon
-    notify-send -a "state" -r 91190 -i "$icon" "Volume: Unmuted" -u low
-  fi
+  # SwayOSD handles mute notifications automatically
+  swayosd-client --output-volume mute-toggle
 }
 
 action_volume() {
   case "${1}" in
   i)
-    # Increase volume if below 100
-    current_vol=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
-    if [ "$current_vol" -lt 100 ]; then
-      new_vol=$((current_vol + 2))
-      [ "$new_vol" -gt 100 ] && new_vol=100
-      pactl set-sink-volume @DEFAULT_SINK@ "${new_vol}%"
-    fi
+    # SwayOSD handles both the volume change and OSD display
+    swayosd-client --output-volume raise
     ;;
   d)
-    # Decrease volume if above 0
-    current_vol=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
-    new_vol=$((current_vol - 2))
-    [ "$new_vol" -lt 0 ] && new_vol=0
-    pactl set-sink-volume @DEFAULT_SINK@ "${new_vol}%"
+    # SwayOSD handles both the volume change and OSD display
+    swayosd-client --output-volume lower
     ;;
   esac
 }
@@ -116,8 +103,6 @@ shift $((OPTIND - 1))
 case "${1}" in
 i) action_volume i ;;
 d) action_volume d ;;
-m) pactl set-sink-mute @DEFAULT_SINK@ toggle && notify_mute && exit 0 ;;
+m) swayosd-client --output-volume mute-toggle && exit 0 ;;
 *) print_error ;;
 esac
-
-send_notification

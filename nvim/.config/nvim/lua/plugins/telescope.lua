@@ -38,7 +38,7 @@ return {
       vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
       vim.keymap.set("n", "<leader><leader>", builtin.oldfiles, {})
       vim.keymap.set("n", "<leader>bb", builtin.buffers, {})
-      vim.keymap.set("n", "<leader>cs", function()
+      vim.keymap.set("n", "<leader>ch", function()
         local cheat_file = vim.fn.stdpath("config") .. "/cheat-sheet.md"
         local lines = vim.fn.readfile(cheat_file)
         local cheatsheet_data = {}

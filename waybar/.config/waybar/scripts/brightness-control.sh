@@ -12,8 +12,8 @@ EOF
 
 # Send a notification with brightness info
 send_notification() {
-  brightness=$(brightnessctl info | grep -oP "(?<=\()\d+(?=%)")
-  notify-send -a "state" -r 91190 -i "gpm-brightness-lcd" -h int:value:"$brightness" "Brightness: ${brightness}%" -u low
+  # SwayOSD handles the visual feedback automatically
+  swayosd-client --brightness raise 0
 }
 
 # Get the current brightness percentage and device name
@@ -31,22 +31,12 @@ while getopts o: opt; do
   o)
     case $OPTARG in
     i) # Increase brightness
-      if [[ $brightness -lt 10 ]]; then
-        brightnessctl set +1%
-      else
-        brightnessctl set +2%
-      fi
-      send_notification
+      # SwayOSD handles both the brightness change and OSD display
+      swayosd-client --brightness raise
       ;;
     d) # Decrease brightness
-      if [[ $brightness -le 1 ]]; then
-        brightnessctl set 1%
-      elif [[ $brightness -le 10 ]]; then
-        brightnessctl set 1%-
-      else
-        brightnessctl set 2%-
-      fi
-      send_notification
+      # SwayOSD handles both the brightness change and OSD display
+      swayosd-client --brightness lower
       ;;
     *)
       print_error
