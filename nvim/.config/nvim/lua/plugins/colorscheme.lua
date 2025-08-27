@@ -11,7 +11,9 @@ return { { "scottmckendry/cyberdream.nvim",
         theme = {
           variant = "default", -- use "light" for light mode
           highlights = {
-            -- Custom highlights can be added here
+            -- Make vertical split separators visible
+            VertSplit = { fg = "#3c4048", bg = "NONE" },
+            WinSeparator = { fg = "#3c4048", bg = "NONE" },
           }
         },
         -- Disable or enable colorscheme extensions
