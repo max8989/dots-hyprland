@@ -27,6 +27,7 @@ PACMAN_PLUGIN_PACKAGES=(
     "python"
     "python-pip"
     "lazygit"
+    "lazydocker"
 )
 
 # Note: Clipboard tools (wl-clipboard/xclip) are likely already installed with your Wayland setup
