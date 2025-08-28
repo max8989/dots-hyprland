@@ -47,10 +47,29 @@ end, { silent = true, desc = 'Delete current buffer (smart)' })
 -- Transparency settings
 vim.opt.pumblend = 15
 vim.opt.winblend = 15
+
+-- Apply transparency after colorscheme loads
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = function()
+    vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
+    vim.cmd("highlight NormalFloat guibg=NONE ctermbg=NONE")
+    vim.cmd("highlight NormalNC guibg=NONE ctermbg=NONE")
+    vim.cmd("highlight EndOfBuffer guibg=NONE ctermbg=NONE")
+    vim.cmd("highlight SignColumn guibg=NONE ctermbg=NONE")
+    vim.cmd("highlight LineNr guibg=NONE ctermbg=NONE")
+    vim.cmd("highlight CursorLineNr guibg=NONE ctermbg=NONE")
+  end,
+})
+
+-- Also apply immediately
 vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
 vim.cmd("highlight NormalFloat guibg=NONE ctermbg=NONE")
 vim.cmd("highlight NormalNC guibg=NONE ctermbg=NONE")
 vim.cmd("highlight EndOfBuffer guibg=NONE ctermbg=NONE")
+vim.cmd("highlight SignColumn guibg=NONE ctermbg=NONE")
+vim.cmd("highlight LineNr guibg=NONE ctermbg=NONE")
+vim.cmd("highlight CursorLineNr guibg=NONE ctermbg=NONE")
 
 -- Auto-reload files when changed externally
 vim.opt.autoread = true

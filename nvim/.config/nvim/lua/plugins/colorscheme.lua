@@ -3,7 +3,7 @@ return { { "scottmckendry/cyberdream.nvim",
     priority = 1000,
     config = function()
       require("cyberdream").setup({
-        transparent = false,
+        transparent = true,
         italic_comments = true,
         hide_fillchars = false,
         borderless_telescope = false,
