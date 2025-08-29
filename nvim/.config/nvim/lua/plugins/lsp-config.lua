@@ -85,6 +85,7 @@ return {
 			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
 			vim.keymap.set("n", "gr", vim.lsp.buf.references, {})
 			vim.keymap.set("n", "<S-F12>", vim.lsp.buf.references, {})
+			vim.keymap.set("n", "<C-F12>", vim.lsp.buf.implementation, {})
 			vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, {})
 			vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, {})
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
@@ -98,6 +99,14 @@ return {
 			vim.keymap.set("n", "<leader>f", function()
 				vim.lsp.buf.format({ async = true })
 			end, {})
+			
+			-- VS Code style shortcuts
+			vim.keymap.set("n", "<C-S-F12>", vim.lsp.buf.declaration, {}) -- Go to declaration
+			vim.keymap.set("n", "<A-F12>", vim.lsp.buf.definition, {}) -- Peek definition
+			vim.keymap.set("n", "<C-Space>", vim.lsp.buf.completion, {}) -- Trigger completion
+			vim.keymap.set("n", "<C-S-Space>", vim.lsp.buf.signature_help, {}) -- Trigger parameter hints
+			vim.keymap.set("n", "<A-Enter>", vim.lsp.buf.code_action, {}) -- Quick fix
+			vim.keymap.set("n", "<S-A-F12>", vim.lsp.buf.references, {}) -- Find all references
 		end,
 	},
 }

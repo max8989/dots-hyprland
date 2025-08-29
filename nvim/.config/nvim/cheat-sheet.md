@@ -58,6 +58,13 @@ Leader key: `<Space>`
 | LSP | `]d` | Next diagnostic |
 | LSP | `<leader>q` | Diagnostic quickfix |
 | LSP | `<leader>f` | Format code |
+| LSP | `<C-F12>` | Go to implementation |
+| LSP | `<C-S-F12>` | Go to declaration (VS Code style) |
+| LSP | `<A-F12>` | Peek definition |
+| LSP | `<C-Space>` | Trigger completion |
+| LSP | `<C-S-Space>` | Trigger parameter hints |
+| LSP | `<A-Enter>` | Quick fix/code actions |
+| LSP | `<S-A-F12>` | Find all references (VS Code style) |
 | Debugging | `<F5>` | Start/Continue debugging |
 | Debugging | `<F9>` | Toggle breakpoint |
 | Debugging | `<F10>` | Step over |
