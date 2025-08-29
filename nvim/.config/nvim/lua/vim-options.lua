@@ -44,32 +44,9 @@ vim.keymap.set('n', '<leader>bd', function()
   vim.cmd('bdelete! ' .. bufnr)
 end, { silent = true, desc = 'Delete current buffer (smart)' })
 
--- Transparency settings
-vim.opt.pumblend = 15
-vim.opt.winblend = 15
-
--- Apply transparency after colorscheme loads
-vim.api.nvim_create_autocmd("ColorScheme", {
-  pattern = "*",
-  callback = function()
-    vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
-    vim.cmd("highlight NormalFloat guibg=NONE ctermbg=NONE")
-    vim.cmd("highlight NormalNC guibg=NONE ctermbg=NONE")
-    vim.cmd("highlight EndOfBuffer guibg=NONE ctermbg=NONE")
-    vim.cmd("highlight SignColumn guibg=NONE ctermbg=NONE")
-    vim.cmd("highlight LineNr guibg=NONE ctermbg=NONE")
-    vim.cmd("highlight CursorLineNr guibg=NONE ctermbg=NONE")
-  end,
-})
-
--- Also apply immediately
-vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
-vim.cmd("highlight NormalFloat guibg=NONE ctermbg=NONE")
-vim.cmd("highlight NormalNC guibg=NONE ctermbg=NONE")
-vim.cmd("highlight EndOfBuffer guibg=NONE ctermbg=NONE")
-vim.cmd("highlight SignColumn guibg=NONE ctermbg=NONE")
-vim.cmd("highlight LineNr guibg=NONE ctermbg=NONE")
-vim.cmd("highlight CursorLineNr guibg=NONE ctermbg=NONE")
+-- Transparency settings (disabled)
+-- vim.opt.pumblend = 15
+-- vim.opt.winblend = 15
 
 -- Auto-reload files when changed externally
 vim.opt.autoread = true
@@ -94,7 +71,7 @@ vim.opt.fillchars = {
 }
 
 -- Highlight the split lines
-vim.cmd("highlight WinSeparator guifg=#44475a guibg=NONE")
+vim.cmd("highlight WinSeparator guifg=#44475a")
 
 -- Navigate vim panes better
 vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
