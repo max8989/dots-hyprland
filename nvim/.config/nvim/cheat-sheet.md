@@ -20,7 +20,26 @@ Leader key: `<Space>`
 | File Explorer | `<C-b>` | Reveal current file in tree |
 | Window Navigation | `<C-w>h` | Move to left window |
 | Window Navigation | `<C-w>l` | Move to right window |
-| Terminal | `<C-`>` | Toggle terminal |
+| Terminal | `<C-j>` | Toggle horizontal terminal |
+| Terminal | `<C-`>` | Toggle fullscreen floating terminal |
+| Terminal | `<leader>t1` | Toggle terminal 1 |
+| Terminal | `<leader>t2` | Toggle terminal 2 |
+| Terminal | `<leader>t3` | Toggle terminal 3 |
+| Terminal | `<leader>th` | Toggle horizontal terminal |
+| Terminal | `<leader>tv` | Toggle vertical terminal |
+| Terminal | `<leader>tf` | Toggle floating terminal |
+| Terminal | `<leader>tt` | Toggle terminal in new tab |
+| Terminal | `<leader>tr+` | Increase terminal height |
+| Terminal | `<leader>tr-` | Decrease terminal height |
+| Terminal | `<leader>tp` | Open Python REPL |
+| Terminal | `<leader>tn` | Open Node.js REPL |
+| Terminal | `<leader>tk` | Kill all terminals |
+| Terminal (in terminal mode) | `<Esc>` | Exit terminal mode |
+| Terminal (in terminal mode) | `<C-h>` | Navigate to left window |
+| Terminal (in terminal mode) | `<C-j>` | Navigate to down window |
+| Terminal (in terminal mode) | `<C-k>` | Navigate to up window |
+| Terminal (in terminal mode) | `<C-l>` | Navigate to right window |
+| Terminal (in terminal mode) | `<C-w>` | Window commands |
 | LSP | `K` | Show hover documentation |
 | LSP | `<F12>` | Go to definition |
 | LSP | `gd` | Go to definition (alternative) |
