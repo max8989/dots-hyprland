@@ -64,25 +64,42 @@ return {
           end
         end
 
+        -- Define highlight groups for better visual appeal
+        vim.api.nvim_set_hl(0, "TelescopeCheatSection", { fg = "#89b4fa", bold = true })
+        vim.api.nvim_set_hl(0, "TelescopeCheatKey", { fg = "#f38ba8", bold = true })
+        vim.api.nvim_set_hl(0, "TelescopeCheatDesc", { fg = "#a6e3a1" })
+        vim.api.nvim_set_hl(0, "TelescopeCheatSep", { fg = "#585b70" })
+
         require('telescope.pickers').new({}, {
-          prompt_title = "Custom Cheat Sheet",
+          prompt_title = "🔍 Keybinding Cheat Sheet",
+          layout_strategy = "horizontal",
+          layout_config = {
+            width = 0.75,
+            height = 0.90,
+            preview_cutoff = 1,
+            prompt_position = "bottom",
+          },
           finder = require('telescope.finders').new_table({
             results = cheatsheet_data,
             entry_maker = function(entry)
               local section, desc, key, type = entry[1], entry[2], entry[3], entry[4]
-              local display
               
               if type == "separator" then
-                display = ""
+                return {
+                  value = entry,
+                  display = string.rep("─", 70),
+                  ordinal = "",
+                }
               else
-                display = string.format("%-20s  %-35s %s", section, desc, key)
+                local formatted_key = key ~= "" and string.format("[%s]", key) or ""
+                local display = string.format("%-20s  %-45s %s", section, desc, formatted_key)
+                
+                return {
+                  value = entry,
+                  display = display,
+                  ordinal = section .. " " .. desc .. " " .. key,
+                }
               end
-              
-              return {
-                value = entry,
-                display = display,
-                ordinal = section .. " " .. desc .. " " .. key,
-              }
             end,
           }),
           sorter = require('telescope.config').values.generic_sorter({}),
