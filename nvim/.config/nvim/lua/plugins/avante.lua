@@ -36,6 +36,9 @@ return {
       },
     },
   },
+  keys = {
+    { "<C-a>", "<cmd>AvanteToggle<cr>", desc = "Toggle Avante", mode = { "n", "i", "v" } },
+  },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
