@@ -47,6 +47,14 @@ return {
       vim.cmd('3ToggleTerm direction=horizontal')
     end, { desc = "Toggle terminal 3" })
 
+    vim.keymap.set('n', '<leader>t4', function()
+      vim.cmd('4ToggleTerm direction=horizontal')
+    end, { desc = "Toggle terminal 4" })
+
+    vim.keymap.set('n', '<leader>t5', function()
+      vim.cmd('5ToggleTerm direction=horizontal')
+    end, { desc = "Toggle terminal 5" })
+
     -- Different terminal layouts
     vim.keymap.set('n', '<leader>th', function()
       vim.cmd('ToggleTerm direction=horizontal size=20')
