@@ -90,3 +90,17 @@ Leader key: `<Space>`
 | Telescope Extensions | `<CR>` | Select item |
 | Telescope Extensions | `<C-x>` | Open in horizontal split |
 | Telescope Extensions | `<C-v>` | Open in vertical split |
+| Git Signs | `]c` | Jump to next git change |
+| Git Signs | `[c` | Jump to previous git change |
+| Git Signs | `<leader>hs` | Stage hunk |
+| Git Signs | `<leader>hr` | Reset hunk |
+| Git Signs | `<leader>hS` | Stage entire buffer |
+| Git Signs | `<leader>hu` | Undo stage hunk |
+| Git Signs | `<leader>hR` | Reset entire buffer |
+| Git Signs | `<leader>hp` | Preview hunk changes |
+| Git Signs | `<leader>hb` | Show full blame for line |
+| Git Signs | `<leader>tb` | Toggle inline blame |
+| Git Signs | `<leader>hd` | Diff this file |
+| Git Signs | `<leader>hD` | Diff this file against HEAD~ |
+| Git Signs | `<leader>td` | Toggle deleted lines |
+| Git Signs | `ih` | Select hunk (visual/operator mode) |

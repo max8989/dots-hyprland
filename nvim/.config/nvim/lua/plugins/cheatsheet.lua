@@ -20,7 +20,7 @@ return {
           "vim-easy-align",
           "vim-sandwich",
         },
-        disabled = { "gitsigns" },
+        disabled = {},
       },
       include_only_installed_plugins = true,
       telescope_mappings = {
