@@ -22,7 +22,8 @@
     "pulseaudio", // output device
     "battery", // battery
     "hyprland/language", // keyboard layout
-    "tray" // system tray
+    "tray", // system tray
+    "custom/power" // power menu
   ],
 
   // <<--< Modules >-->>
@@ -86,5 +87,11 @@
 
   "tray": {
     "spacing": 10
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": false,
+    "on-click": "~/.config/waybar/scripts/power-menu.sh"
   }
 }

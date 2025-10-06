@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
 
-config="$HOME/.config/rofi/power-menu.rasi"
+# i3-style power menu options
+actions=$(echo -e "  Lock\n  Shutdown\n  Reboot\n  Suspend\n  Hibernate\n  Logout")
 
-actions=$(echo -e "  Lock\n  Shutdown\n  Reboot\n  Suspend\n  Hibernate\n  Logout")
-
-# Display logout menu
-selected_option=$(echo -e "$actions" | rofi -dmenu -i -config "${config}" || pkill -x rofi)
+# Display power menu using wofi with i3 style
+selected_option=$(echo -e "$actions" | wofi \
+    --dmenu \
+    --prompt "" \
+    --width 350 \
+    --height 280 \
+    --style "$HOME/.config/wofi/power-menu.css" \
+    --hide-scroll \
+    -p "")
 
 # Perform actions based on the selected option
 case "$selected_option" in
