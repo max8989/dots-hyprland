@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# Close wofi if already running
+if pidof wofi > /dev/null; then
+    killall wofi
+    exit 0
+fi
+
 # i3-style power menu options
 actions=$(echo -e "  Lock\n  Shutdown\n  Reboot\n  Suspend\n  Hibernate\n  Logout")
 
