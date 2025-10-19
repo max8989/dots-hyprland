@@ -68,7 +68,6 @@ window#waybar > box {
 #clock,
 #tray,
 #language,
-#custom-notification,
 #custom-power {
   padding: 0 10px;
   color: #ffffff;
@@ -128,17 +127,6 @@ tooltip {
 tooltip label {
   color: #ffffff;
   padding: 5px;
-}
-
-/* Notification icon */
-#custom-notification {
-  color: #4c7899;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-#custom-notification:hover {
-  background: #333333;
 }
 
 /* Power menu button */
