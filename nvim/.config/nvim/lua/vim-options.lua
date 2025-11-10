@@ -98,15 +98,16 @@ vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
 -- Clear search highlighting with Escape
 vim.keymap.set('n', '<Esc>', ':nohlsearch<CR>', { silent = true })
 
--- Map jk and kj to Escape in all modes
--- Map jk and kj to Escape in all modes
--- vim.keymap.set('i', 'jk', '<Esc>', { silent = true, desc = 'Exit insert mode' })
--- vim.keymap.set('i', 'kj', '<Esc>', { silent = true, desc = 'Exit insert mode' })
--- vim.keymap.set('v', 'jk', '<Esc>', { silent = true, desc = 'Exit visual mode' })
--- vim.keymap.set('v', 'kj', '<Esc>', { silent = true, desc = 'Exit visual mode' })
--- vim.keymap.set('x', 'jk', '<Esc>', { silent = true, desc = 'Exit visual mode' })
--- vim.keymap.set('x', 'kj', '<Esc>', { silent = true, desc = 'Exit visual mode' })
--- vim.keymap.set('s', 'jk', '<Esc>', { silent = true, desc = 'Exit select mode' })
--- vim.keymap.set('s', 'kj', '<Esc>', { silent = true, desc = 'Exit select mode' })
--- vim.keymap.set('c', 'jk', '<C-c>', { silent = true, desc = 'Exit command mode' })
--- vim.keymap.set('c', 'kj', '<C-c>', { silent = true, desc = 'Exit command mode' })
+-- Delete without yanking to clipboard (use black hole register)
+vim.keymap.set('n', 'x', '"_x', { desc = 'Delete character without yanking' })
+vim.keymap.set('n', 'X', '"_X', { desc = 'Delete character backwards without yanking' })
+vim.keymap.set('n', 'd', '"_d', { desc = 'Delete without yanking' })
+vim.keymap.set('n', 'D', '"_D', { desc = 'Delete to end of line without yanking' })
+vim.keymap.set('n', 'dd', '"_dd', { desc = 'Delete line without yanking' })
+vim.keymap.set('v', 'd', '"_d', { desc = 'Delete selection without yanking' })
+vim.keymap.set('v', 'x', '"_x', { desc = 'Delete selection without yanking' })
+
+-- Use leader+d for cut (delete and yank)
+vim.keymap.set('n', '<leader>d', '"+d', { desc = 'Cut (delete and yank to clipboard)' })
+vim.keymap.set('n', '<leader>dd', '"+dd', { desc = 'Cut line (delete and yank to clipboard)' })
+vim.keymap.set('v', '<leader>d', '"+d', { desc = 'Cut selection (delete and yank to clipboard)' })
