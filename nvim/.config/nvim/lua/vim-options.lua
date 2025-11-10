@@ -12,6 +12,22 @@ vim.cmd("set ignorecase")
 vim.cmd("set smartcase")
 vim.opt.confirm = false
 
+-- Enable system clipboard integration
+-- This makes "+y and "*y copy to system clipboard
+-- Also makes regular y/p operations use the system clipboard
+vim.opt.clipboard = "unnamedplus"
+
+vim.opt.undofile = true  -- Enable persistent undo across sessions
+vim.opt.undodir = vim.fn.expand("~/.config/nvim/undodir")
+-- Better search experience
+vim.opt.incsearch = true  -- Show search results as you type
+vim.opt.scrolloff = 8      -- Keep 8 lines visible above/below cursor
+
+-- Auto-save when switching buffers
+vim.opt.autowriteall = true
+
+vim.opt.cursorline = true  -- Highlight current line
+
 -- Buffer navigation keybindings
 -- Commented out in favor of bufferline navigation (using <S-h> and <S-l>)
 -- vim.keymap.set('n', '<Tab>', ':bnext<CR>', { silent = true })     -- Move to next buffer
