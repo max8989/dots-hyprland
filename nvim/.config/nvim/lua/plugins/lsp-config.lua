@@ -95,7 +95,13 @@ return {
 			vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {})
 			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {})
 			vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {})
-			vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, {})
+			vim.keymap.set("n", "<leader>q", function()
+			if vim.fn.getloclist(0, { winid = 0 }).winid ~= 0 then
+				vim.cmd("lclose")
+			else
+				vim.diagnostic.setloclist()
+			end
+		end, {})
 			vim.keymap.set("n", "<leader>f", function()
 				vim.lsp.buf.format({ async = true })
 			end, {})

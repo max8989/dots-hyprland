@@ -15,7 +15,7 @@
 )
 
 (deflayer base
-  @cap _ _ _ _ _ _ _
+  @cap h j k l u o q
 )
 
 (deflayer nav
