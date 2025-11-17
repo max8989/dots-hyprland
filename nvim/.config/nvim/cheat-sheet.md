@@ -20,7 +20,7 @@ Leader key: `<Space>`
 | File Explorer | `<C-b>` | Reveal current file in tree |
 | Window Navigation | `<C-w>h` | Move to left window |
 | Window Navigation | `<C-w>l` | Move to right window |
-| Terminal | `<C-j>` | Toggle horizontal terminal |
+| Terminal | `<C-\>` | Toggle horizontal terminal |
 | Terminal | `<C-`>` | Toggle fullscreen floating terminal |
 | Terminal | `<leader>t1` | Toggle terminal 1 |
 | Terminal | `<leader>t2` | Toggle terminal 2 |
