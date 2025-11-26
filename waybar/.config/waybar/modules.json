@@ -66,7 +66,7 @@
     "tooltip-format": "{ifname} via {gwaddr} "
   },
   "pulseaudio": {
-    "format": "{icon}  {volume}%",
+    "format": "{icon} {volume}%  {format_source}",
     "format-bluetooth": "{icon} {volume}%  {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
     "format-icons": {
@@ -81,7 +81,10 @@
     "format-muted": " {format_source}",
     "format-source": " {volume}%",
     "format-source-muted": "",
-    "on-click": "pavucontrol"
+    "scroll-step": 5,
+    "on-click": "pavucontrol",
+    "on-click-right": "hyprwat --audio",
+    "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
   },
   "temperature": {
     "critical-threshold": 100,
