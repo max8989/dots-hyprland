@@ -12,6 +12,7 @@ return {
 		opts = {
 			auto_install = true,
 			ensure_installed = { "lua_ls", "ts_ls", "eslint", "emmet_ls", "cssls", "tailwindcss", "omnisharp" },
+			automatic_enable = true,
 		},
 	},
 	{
@@ -20,8 +21,8 @@ return {
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			local lspconfig = require("lspconfig")
-			lspconfig.ts_ls.setup({
+			-- Configure servers using vim.lsp.config (Nvim 0.11+)
+			vim.lsp.config("ts_ls", {
 				capabilities = capabilities,
 				filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
 				settings = {
@@ -49,34 +50,51 @@ return {
 					},
 				},
 			})
-			lspconfig.eslint.setup({
+
+			vim.lsp.config("eslint", {
 				capabilities = capabilities,
 				filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
 				settings = {
 					workingDirectory = { mode = "auto" },
 				},
 			})
-			lspconfig.emmet_ls.setup({
+
+			vim.lsp.config("emmet_ls", {
 				capabilities = capabilities,
 				filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
 			})
-			lspconfig.cssls.setup({
+
+			vim.lsp.config("cssls", {
 				capabilities = capabilities,
 				filetypes = { "css", "scss", "less" },
 			})
-			lspconfig.tailwindcss.setup({
+
+			vim.lsp.config("tailwindcss", {
 				capabilities = capabilities,
 				filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact" },
 			})
-			lspconfig.solargraph.setup({
+
+			vim.lsp.config("solargraph", {
 				capabilities = capabilities,
 			})
-			lspconfig.html.setup({
+
+			vim.lsp.config("html", {
 				capabilities = capabilities,
 			})
-			lspconfig.lua_ls.setup({
+
+			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
 			})
+
+			-- Enable servers (mason-lspconfig handles this with automatic_enable = true)
+			vim.lsp.enable("ts_ls")
+			vim.lsp.enable("eslint")
+			vim.lsp.enable("emmet_ls")
+			vim.lsp.enable("cssls")
+			vim.lsp.enable("tailwindcss")
+			vim.lsp.enable("solargraph")
+			vim.lsp.enable("html")
+			vim.lsp.enable("lua_ls")
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<F12>", vim.lsp.buf.definition, {})
@@ -96,16 +114,16 @@ return {
 			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {})
 			vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {})
 			vim.keymap.set("n", "<leader>q", function()
-			if vim.fn.getloclist(0, { winid = 0 }).winid ~= 0 then
-				vim.cmd("lclose")
-			else
-				vim.diagnostic.setloclist()
-			end
-		end, {})
+				if vim.fn.getloclist(0, { winid = 0 }).winid ~= 0 then
+					vim.cmd("lclose")
+				else
+					vim.diagnostic.setloclist()
+				end
+			end, {})
 			vim.keymap.set("n", "<leader>f", function()
 				vim.lsp.buf.format({ async = true })
 			end, {})
-			
+
 			-- VS Code style shortcuts
 			vim.keymap.set("n", "<C-S-F12>", vim.lsp.buf.declaration, {}) -- Go to declaration
 			vim.keymap.set("n", "<A-F12>", vim.lsp.buf.definition, {}) -- Peek definition
