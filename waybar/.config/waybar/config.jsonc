@@ -20,6 +20,7 @@
     "cpu", // cpu
     "memory", // memory
     "pulseaudio", // output device
+    "custom/mic", // microphone
     "battery", // battery
     "hyprland/language", // keyboard layout
     "tray", // system tray
@@ -65,8 +66,22 @@
   "pulseaudio": {
     "format": "VOL {volume}%",
     "format-muted": "MUTE",
-    "tooltip": false,
-    "on-click": "~/.config/waybar/scripts/volume-control.sh -o m"
+    "tooltip": true,
+    "tooltip-format": "{desc} at {volume}%",
+    "scroll-step": 5,
+    "on-click": "hyprwat --audio",
+    "on-click-right": "swayosd-client --output-volume mute-toggle",
+    "on-scroll-up": "swayosd-client --output-volume raise",
+    "on-scroll-down": "swayosd-client --output-volume lower"
+  },
+
+  "custom/mic": {
+    "exec": "~/.config/waybar/scripts/mic-status.sh",
+    "return-type": "json",
+    "interval": 2,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-"
   },
 
   "battery": {
