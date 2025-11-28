@@ -90,17 +90,29 @@ Leader key: `<Space>`
 | Telescope Extensions | `<CR>` | Select item |
 | Telescope Extensions | `<C-x>` | Open in horizontal split |
 | Telescope Extensions | `<C-v>` | Open in vertical split |
-| Git Signs | `]c` | Jump to next git change |
-| Git Signs | `[c` | Jump to previous git change |
-| Git Signs | `<leader>hs` | Stage hunk |
-| Git Signs | `<leader>hr` | Reset hunk |
-| Git Signs | `<leader>hS` | Stage entire buffer |
-| Git Signs | `<leader>hu` | Undo stage hunk |
-| Git Signs | `<leader>hR` | Reset entire buffer |
-| Git Signs | `<leader>hp` | Preview hunk changes |
-| Git Signs | `<leader>hb` | Show full blame for line |
-| Git Signs | `<leader>tb` | Toggle inline blame |
-| Git Signs | `<leader>hd` | Diff this file |
-| Git Signs | `<leader>hD` | Diff this file against HEAD~ |
-| Git Signs | `<leader>td` | Toggle deleted lines |
-| Git Signs | `ih` | Select hunk (visual/operator mode) |
+| Git | `<leader>lg` | Open LazyGit |
+| Git | `<leader>gl` | Git graph - all branches |
+| Git | `<leader>gL` | Git graph - current branch only |
+| Git | `<leader>gf` | Git graph - current file history |
+| Git | `<leader>gv` | Git graph - recent commits (last 50) |
+| Git | `]c` | Jump to next git change |
+| Git | `[c` | Jump to previous git change |
+| Git | `<leader>gs` | Stage hunk |
+| Git | `<leader>gr` | Reset hunk |
+| Git | `<leader>gS` | Stage entire buffer |
+| Git | `<leader>gu` | Unstage hunk |
+| Git | `<leader>gR` | Reset entire buffer |
+| Git | `<leader>gp` | Preview hunk changes |
+| Git | `<leader>gb` | Show blame for line |
+| Git | `<leader>gB` | Toggle inline blame |
+| Git | `<leader>gd` | Diff this file |
+| Git | `<leader>gD` | Diff against HEAD~ |
+| Git | `<leader>gt` | Toggle deleted lines |
+| Git | `ig` | Select git hunk (visual/operator mode) |
+| Git Graph (in graph buffer) | `<CR>` | View commit diff (press Enter) |
+| Git Graph (in graph buffer) | `V` then `<CR>` | View range diff (visual select + Enter) |
+| Diffview | `:DiffviewClose` | Close diffview pane |
+| Diffview | `<Tab>` / `<S-Tab>` | Next/previous file in diff |
+| Diffview | `<leader>e` | Focus file panel |
+| Diffview | `<leader>b` | Toggle file panel |
+| Diffview | `g?` | Show help |
