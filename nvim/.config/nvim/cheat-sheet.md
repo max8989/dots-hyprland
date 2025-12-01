@@ -37,9 +37,16 @@ Leader key: `<Space>`
 | Neo-tree View Controls | `t` | Open in new tab |
 | Neo-tree View Controls | `P` | Toggle preview |
 | Neo-tree View Controls | `C` | Close node |
-| Neo-tree View Controls | `z` | Close all nodes |
 | Neo-tree View Controls | `R` | Refresh tree |
 | Neo-tree View Controls | `q` | Close Neo-tree window |
+| Neo-tree Recursive Operations | `E` | Recursively expand current folder and all subfolders |
+| Neo-tree Recursive Operations | `zO` | Recursively expand current folder and all subfolders |
+| Neo-tree Recursive Operations | `zC` | Recursively close current folder and all subfolders |
+| Neo-tree Recursive Operations | `zR` | Expand ALL folders in entire tree |
+| Neo-tree Recursive Operations | `zM` | Close all folders in tree |
+| Neo-tree Recursive Operations | `zo` | Toggle current folder open/close |
+| Neo-tree Recursive Operations | `za` | Toggle current folder open/close |
+| Neo-tree Recursive Operations | `zc` | Close current folder |
 | Neo-tree Search | `/` | Fuzzy find |
 | Neo-tree Search | `D` | Fuzzy find directories |
 | Neo-tree Search | `#` | Fuzzy sort |

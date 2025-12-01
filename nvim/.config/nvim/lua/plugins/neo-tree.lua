@@ -11,6 +11,20 @@ return  {
     vim.keymap.set('n', '<C-n>', ':Neotree toggle<CR>', {})
     --   vim.keymap.set('n', '<C-b>', ':Neotree filesystem reveal left<CR>', {})
     require("neo-tree").setup({
+      window = {
+        mappings = {
+          -- Vim-style fold mappings for recursive operations
+          ["z"] = "none", -- Disable default 'z' to use fold-style bindings
+          ["zo"] = "toggle_node",
+          ["zO"] = "expand_all_subnodes", -- Recursively expand current folder only
+          ["zc"] = "close_node",
+          ["zC"] = "close_all_subnodes", -- Recursively close current node
+          ["za"] = "toggle_node",
+          ["zM"] = "close_all_nodes", -- Close all nodes
+          ["zR"] = "expand_all_nodes", -- Open all nodes in tree
+          ["E"] = "expand_all_subnodes", -- Recursively expand current folder only
+        },
+      },
       filesystem = {
         filtered_items = {
           hide_dotfiles = false,
