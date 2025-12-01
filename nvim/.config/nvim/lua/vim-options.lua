@@ -9,7 +9,36 @@ vim.g.maplocalleader = "\\"
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.cmd("set ignorecase")
-vim.cmd("set smartcase")
+-- Removed smartcase so search is always case-insensitive
+-- (smartcase makes search case-sensitive when you type uppercase letters)
+
+-- Accent-insensitive search: u matches u, ù, ú, û, ü, etc.
+-- Use \C in your search to override and make it case-sensitive when needed
+vim.keymap.set('n', '/', function()
+  local accent_map = {
+    a = '[aàáâãäåāăąǎ]', A = '[AÀÁÂÃÄÅĀĂĄǍ]',
+    e = '[eèéêëēĕėęě]', E = '[EÈÉÊËĒĔĖĘĚ]',
+    i = '[iìíîïĩīĭįı]', I = '[IÌÍÎÏĨĪĬĮ]',
+    o = '[oòóôõöøōŏő]', O = '[OÒÓÔÕÖØŌŎŐ]',
+    u = '[uùúûüũūŭůű]', U = '[UÙÚÛÜŨŪŬŮŰ]',
+    c = '[cçćĉċč]', C = '[CÇĆĈĊČ]',
+    n = '[nñńņň]', N = '[NÑŃŅŇ]',
+  }
+
+  vim.ui.input({ prompt = '/' }, function(pattern)
+    if not pattern then return end
+
+    -- Expand each letter to include accented variants
+    local expanded = pattern:gsub('[a-zA-Z]', function(c)
+      return accent_map[c] or c
+    end)
+
+    vim.fn.setreg('/', expanded)
+    vim.cmd('set hlsearch')
+    pcall(vim.cmd, 'normal! n')
+  end)
+end, { desc = 'Search with accent folding' })
+
 vim.opt.confirm = false
 
 -- Enable system clipboard integration
@@ -86,7 +115,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end
 
     -- Find project root using common markers
-    local root = vim.fs.root(args.buf, {'.git', 'Makefile', 'package.json', 'Cargo.toml', 'go.mod', 'pom.xml', 'build.gradle', '.root'})
+    local root = vim.fs.root(args.buf, {'.git', 'Makefile', 'package.json', 'Cargo.toml', 'go.mod', 'pom.xml', 'build.gradle', '.sln', '.csproj', '.root'})
     if root and root ~= vim.fn.getcwd() then
       vim.cmd('cd ' .. root)
       -- Uncomment to see when directory changes
