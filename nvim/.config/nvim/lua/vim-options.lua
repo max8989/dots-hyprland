@@ -9,8 +9,6 @@ vim.g.maplocalleader = "\\"
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.cmd("set ignorecase")
--- Removed smartcase so search is always case-insensitive
--- (smartcase makes search case-sensitive when you type uppercase letters)
 
 -- Accent-insensitive search: u matches u, ù, ú, û, ü, etc.
 -- Use \C in your search to override and make it case-sensitive when needed
