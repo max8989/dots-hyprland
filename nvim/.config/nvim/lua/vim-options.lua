@@ -75,6 +75,26 @@ vim.api.nvim_create_autocmd("FileChangedShellPost", {
   command = "echohl WarningMsg | echo 'File changed on disk. Buffer reloaded.' | echohl None",
 })
 
+-- Auto change to project root when opening files
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = function(args)
+    local bufname = vim.api.nvim_buf_get_name(args.buf)
+    -- Skip empty buffers and special buffer types (terminals, etc.)
+    if bufname == "" or vim.bo[args.buf].buftype ~= "" then
+      return
+    end
+
+    -- Find project root using common markers
+    local root = vim.fs.root(args.buf, {'.git', 'Makefile', 'package.json', 'Cargo.toml', 'go.mod', 'pom.xml', 'build.gradle', '.root'})
+    if root and root ~= vim.fn.getcwd() then
+      vim.cmd('cd ' .. root)
+      -- Uncomment to see when directory changes
+      -- print("Changed directory to: " .. root)
+    end
+  end,
+})
+
 -- Split settings for visible separators
 vim.opt.fillchars = {
   vert = '│',     -- Vertical split separator
