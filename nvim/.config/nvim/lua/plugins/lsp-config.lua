@@ -107,7 +107,6 @@ return {
 			vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, {})
 			vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, {})
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
-			vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, {})
 			vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, {})
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
 			vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {})

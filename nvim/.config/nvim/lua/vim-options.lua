@@ -53,8 +53,6 @@ vim.opt.scrolloff = 8      -- Keep 8 lines visible above/below cursor
 -- Auto-save when switching buffers
 vim.opt.autowriteall = true
 
-vim.opt.cursorline = true  -- Highlight current line
-
 -- Buffer navigation keybindings
 -- Commented out in favor of bufferline navigation (using <S-h> and <S-l>)
 -- vim.keymap.set('n', '<Tab>', ':bnext<CR>', { silent = true })     -- Move to next buffer

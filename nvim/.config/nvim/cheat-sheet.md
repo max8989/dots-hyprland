@@ -70,7 +70,6 @@ Leader key: `<Space>`
 | Terminal (in terminal mode) | `<Esc>` | Exit terminal mode |
 | Terminal (in terminal mode) | `<C-h>` | Navigate to left window |
 | Terminal (in terminal mode) | `<C-j>` | Navigate to down window |
-| Terminal (in terminal mode) | `<C-k>` | Navigate to up window |
 | Terminal (in terminal mode) | `<C-l>` | Navigate to right window |
 | Terminal (in terminal mode) | `<C-w>` | Window commands |
 | LSP | `K` | Show hover documentation |
