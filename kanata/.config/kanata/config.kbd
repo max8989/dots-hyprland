@@ -8,6 +8,12 @@
 (defcfg
   process-unmapped-keys yes
   danger-enable-cmd no
+  linux-dev-names-exclude (
+    "Keychron Keychron Q4 Pro"
+    "Keychron Keychron Q4 Pro Keyboard"
+    "Keychron Keychron Q4 Pro System Control"
+    "Keychron Keychron Q4 Pro Consumer Control"
+  )
 )
 
 (defsrc
