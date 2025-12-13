@@ -163,6 +163,26 @@ return {
 			vim.keymap.set("n", "<C-S-Space>", vim.lsp.buf.signature_help, {}) -- Trigger parameter hints
 			vim.keymap.set("n", "<A-Enter>", vim.lsp.buf.code_action, {}) -- Quick fix
 			vim.keymap.set("n", "<S-A-F12>", vim.lsp.buf.references, {}) -- Find all references
+
+			-- Diagnostic configuration for tiny-inline-diagnostic
+			vim.diagnostic.config({
+				underline = false,
+				virtual_text = false,
+				update_in_insert = false,
+				severity_sort = true,
+				signs = {
+					text = {
+            [vim.diagnostic.severity.ERROR] = " ",
+            [vim.diagnostic.severity.WARN] = " ",
+            [vim.diagnostic.severity.HINT] = " ",
+            [vim.diagnostic.severity.INFO] = " ",
+					},
+				},
+			})
+
+			vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+				virtual_text = false,
+			})
 		end,
 	},
 }
