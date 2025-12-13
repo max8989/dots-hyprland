@@ -101,10 +101,11 @@ Leader key: `<Space>`
 | Debugging | `<F9>` | Toggle breakpoint |
 | Debugging | `<F10>` | Step over |
 | Debugging | `<F11>` | Step into |
-| Debugging | `<S-F11>` | Step out |
+| Debugging | `<F8>` | Step out |
+| Debugging | `<F6>` | Debug nearest test |
 | Debugging | `<C-F5>` | Restart debugging |
 | Debugging | `<S-F5>` | Stop debugging |
-| Debugging | `<leader>dt` | Toggle breakpoint (alternative) |
+| Debugging | `<leader>dt` | Debug nearest test (alternative) |
 | Debugging | `<leader>dc` | Start/Continue debugging (alternative) |
 | Debugging | `<leader>dx` | Terminate debugger (alternative) |
 | Debugging | `<leader>do` | Step over (alternative) |
@@ -112,7 +113,7 @@ Leader key: `<Space>`
 | Debugging | `<leader>dr` | Toggle REPL |
 | Debugging | `<leader>db` | Toggle breakpoint |
 | Debugging | `<leader>dB` | Conditional breakpoint |
-| Debugging | `<leader>dl` | Log point breakpoint |
+| Debugging | `<leader>dl` | Run last debug session |
 | Markdown | `<leader>mp` | Toggle markdown preview |
 | Command Line | `:` | Enhanced command mode |
 | Cheat Sheet | `<leader>ch` | Open built-in cheatsheet |
@@ -123,6 +124,7 @@ Leader key: `<Space>`
 | Telescope Extensions | `<C-x>` | Open in horizontal split |
 | Telescope Extensions | `<C-v>` | Open in vertical split |
 | Git | `<leader>lg` | Open LazyGit |
+| Git | `<leader>gh` | Git file history (current file) |
 | Git | `<leader>gl` | Git graph - all branches |
 | Git | `<leader>gL` | Git graph - current branch only |
 | Git | `<leader>gf` | Git graph - current file history |
