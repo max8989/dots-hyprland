@@ -2,24 +2,57 @@ return {
 	{
 		"williamboman/mason.nvim",
 		lazy = false,
-		config = function()
-			require("mason").setup()
-		end,
-	},
+		opts = {
+			registries = {
+				"github:mason-org/mason-registry",
+				"github:Crashdummyy/mason-registry",
+			},
+			ensure_installed = {
+				"lua-language-server",
+				"xmlformatter",
+				"csharpier",
+				"prettier",
+				"stylua",
+				"bicep-lsp",
+				"html-lsp",
+				"css-lsp",
+				"eslint-lsp",
+				"typescript-language-server",
+				"json-lsp",
+				"rust-analyzer",
+
+				-- !
+				"roslyn",
+				-- "csharp-language-server",
+				-- "omnisharp",
+			},
+		},
+  },
+  {
+    "seblyng/roslyn.nvim",
+    ---@module 'roslyn.config'
+    ---@type RoslynNvimConfig
+    ft = { "cs", "razor" },
+    opts = {
+      -- your configuration comes here; leave empty for default settings
+    },
+  },
 	{
 		"williamboman/mason-lspconfig.nvim",
 		lazy = false,
 		opts = {
 			auto_install = true,
-			ensure_installed = { "lua_ls", "ts_ls", "eslint", "emmet_ls", "cssls", "tailwindcss", "omnisharp" },
+			ensure_installed = { "lua_ls", "ts_ls", "eslint", "emmet_ls", "cssls", "tailwindcss" },
 			automatic_enable = true,
 		},
-	},
+  },
 	{
 		"neovim/nvim-lspconfig",
 		lazy = false,
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+      vim.lsp.config("roslyn", {})
 
 			-- Configure servers using vim.lsp.config (Nvim 0.11+)
 			vim.lsp.config("ts_ls", {
