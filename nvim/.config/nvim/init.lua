@@ -19,3 +19,8 @@ require("vim-options")
 require("lazy").setup("plugins", {
 	checker = { enabled = true },
 })
+require("neotest").setup({
+  adapters = {
+    require("neotest-dotnet")
+  }
+})
