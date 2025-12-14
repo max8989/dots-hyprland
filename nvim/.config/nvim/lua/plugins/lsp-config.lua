@@ -34,7 +34,16 @@ return {
     ---@type RoslynNvimConfig
     ft = { "cs", "razor" },
     opts = {
-      -- your configuration comes here; leave empty for default settings
+      choose_target = function(targets)
+        -- Prefer .sln files over .csproj
+        for _, target in ipairs(targets) do
+          if target:match("%.sln$") then
+            return target
+          end
+        end
+        -- Fall back to first target
+        return targets[1]
+      end,
     },
   },
 	{
