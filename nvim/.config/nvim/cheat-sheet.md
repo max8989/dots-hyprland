@@ -153,3 +153,9 @@ Leader key: `<Space>`
 | Diffview | `<leader>e` | Focus file panel |
 | Diffview | `<leader>b` | Toggle file panel |
 | Diffview | `g?` | Show help |
+| Quickfix | `<leader>qo` | Open quickfix list |
+| Quickfix | `<leader>qc` | Close quickfix list |
+| Quickfix | `]q` | Next quickfix item |
+| Quickfix | `[q` | Previous quickfix item |
+| Build (.NET) | `:compiler dotnet` | Set dotnet as compiler |
+| Build (.NET) | `:make` | Build project (after setting compiler) |

@@ -64,3 +64,5 @@ local neotest = require("neotest")
 
 vim.keymap.set("n", "<leader>dt", function() neotest.run.run({ strategy = "dap" }) end, { desc = "Debug nearest test" })
 vim.keymap.set("n", "<F6>", function() neotest.run.run({ strategy = "dap" }) end, { desc = "Debug nearest test" })
+vim.keymap.set("n", "<leader>qo", "<cmd>copen<CR>", { desc = "Open quickfix list" })
+vim.keymap.set("n", "<leader>qc", "<cmd>cclose<CR>", { desc = "Close quickfix list" })
