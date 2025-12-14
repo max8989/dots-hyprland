@@ -165,6 +165,17 @@ Available in `scripts/.config/scripts/`:
 - **Keybindings**: Optimized for productivity
 - **Multi-monitor**: Dynamic display configuration
 
+### GRUB Configuration
+Edit `/etc/default/grub` for kernel boot parameters:
+
+```bash
+# Show systemd logs during boot (remove 'quiet')
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3"
+
+# Apply changes
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+
 ## 📋 System Requirements
 
 ### Essential Packages
