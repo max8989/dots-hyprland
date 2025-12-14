@@ -114,6 +114,9 @@ Leader key: `<Space>`
 | Debugging | `<leader>db` | Toggle breakpoint |
 | Debugging | `<leader>dB` | Conditional breakpoint |
 | Debugging | `<leader>dl` | Run last debug session |
+| Debugging | `<leader>du` | Toggle DAP UI |
+| Debugging | `<leader>dw` | Add word under cursor to Watches |
+| Debugging | `Q` | DAP Peek (eval under cursor) |
 | Markdown | `<leader>mp` | Toggle markdown preview |
 | Command Line | `:` | Enhanced command mode |
 | Cheat Sheet | `<leader>ch` | Open built-in cheatsheet |
