@@ -17,6 +17,7 @@ selected_option=$(echo -e "$actions" | wofi \
     --height 280 \
     --style "$HOME/.config/wofi/power-menu.css" \
     --hide-scroll \
+    --cache-file=/dev/null \
     -p "")
 
 # Perform actions based on the selected option
