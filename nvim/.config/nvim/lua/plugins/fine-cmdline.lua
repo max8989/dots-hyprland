@@ -12,8 +12,8 @@ return {
       },
       popup = {
         position = {
-          row = '20%',
-          col = '50%',
+          row = '95%',
+          col = '0%',
         },
         size = {
           width = 60,
