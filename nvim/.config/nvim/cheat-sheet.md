@@ -117,6 +117,8 @@ Leader key: `<Space>`
 | Debugging | `<leader>du` | Toggle DAP UI |
 | Debugging | `<leader>dw` | Add word under cursor to Watches |
 | Debugging | `Q` | DAP Peek (eval under cursor) |
+| Debugging Build (.NET) | `:compiler dotnet` | Set dotnet as compiler |
+| Debugging Build (.NET) | `:make` | Build project (after setting compiler) |
 | Markdown | `<leader>mp` | Toggle markdown preview |
 | Command Line | `:` | Enhanced command mode |
 | Cheat Sheet | `<leader>ch` | Open built-in cheatsheet |
@@ -157,5 +159,3 @@ Leader key: `<Space>`
 | Quickfix | `<leader>qc` | Close quickfix list |
 | Quickfix | `]q` | Next quickfix item |
 | Quickfix | `[q` | Previous quickfix item |
-| Build (.NET) | `:compiler dotnet` | Set dotnet as compiler |
-| Build (.NET) | `:make` | Build project (after setting compiler) |
