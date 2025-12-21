@@ -68,6 +68,8 @@ window#waybar > box {
 #clock,
 #tray,
 #language,
+#custom-mic,
+#custom-notification,
 #custom-power {
   padding: 0 10px;
   color: #ffffff;
