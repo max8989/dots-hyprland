@@ -17,8 +17,8 @@
   ],
 
   "modules-right": [
-    "cpu", // cpu
-    "memory", // memory
+    "custom/cpu", // cpu with tooltip
+    "custom/memory", // memory with tooltip
     "network", // wifi/ethernet status
     "pulseaudio", // output device
     "custom/mic", // microphone
@@ -47,16 +47,18 @@
     }
   },
 
-  "cpu": {
-    "format": "CPU {usage}%",
-    "tooltip": false,
-    "interval": 5
+  "custom/cpu": {
+    "exec": "~/.config/waybar/scripts/cpu-info.sh",
+    "return-type": "json",
+    "interval": 5,
+    "on-click": "kitty -e btop"
   },
 
-  "memory": {
-    "format": "MEM {percentage}%",
-    "tooltip": false,
-    "interval": 5
+  "custom/memory": {
+    "exec": "~/.config/waybar/scripts/memory-info.sh",
+    "return-type": "json",
+    "interval": 5,
+    "on-click": "kitty -e btop"
   },
 
   "network": {

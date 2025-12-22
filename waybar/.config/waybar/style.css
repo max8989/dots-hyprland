@@ -63,6 +63,8 @@ window#waybar > box {
 /* All modules - consistent styling */
 #cpu,
 #memory,
+#custom-cpu,
+#custom-memory,
 #network,
 #battery,
 #pulseaudio,
