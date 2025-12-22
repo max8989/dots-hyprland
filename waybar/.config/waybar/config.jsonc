@@ -22,6 +22,7 @@
     "network", // wifi/ethernet status
     "pulseaudio", // output device
     "custom/mic", // microphone
+    "power-profiles-daemon", // power profile switcher
     "battery", // battery
     "hyprland/language", // keyboard layout
     "tray", // system tray
@@ -109,6 +110,18 @@
     "format-charging": "CHR {capacity}%",
     "tooltip": false,
     "interval": 30
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "󰗑",
+      "performance": "󰓅",
+      "balanced": "󰾅",
+      "power-saver": "󰾆"
+    }
   },
 
   "hyprland/language": {

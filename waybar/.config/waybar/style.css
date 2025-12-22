@@ -73,7 +73,8 @@ window#waybar > box {
 #language,
 #custom-mic,
 #custom-notification,
-#custom-power {
+#custom-power,
+#power-profiles-daemon {
   padding: 0 10px;
   color: #ffffff;
   background: #222222;
