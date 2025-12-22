@@ -63,6 +63,7 @@ window#waybar > box {
 /* All modules - consistent styling */
 #cpu,
 #memory,
+#network,
 #battery,
 #pulseaudio,
 #clock,
@@ -102,6 +103,11 @@ window#waybar > box {
 /* Pulseaudio */
 #pulseaudio.muted {
   background: #333333;
+  color: #888888;
+}
+
+/* Network */
+#network.disconnected {
   color: #888888;
 }
 
