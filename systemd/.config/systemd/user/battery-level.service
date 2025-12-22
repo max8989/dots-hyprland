@@ -1,0 +1,7 @@
+[Unit]
+Description=Battery level notification checker
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/waybar/scripts/battery-level.sh
