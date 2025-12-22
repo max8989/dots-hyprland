@@ -35,7 +35,6 @@ A complete Wayland desktop environment configuration featuring Hyprland window m
 | **On-Screen Display** | SwayOSD | Volume/brightness overlay indicators |
 | **Keyboard Remap** | Kanata | Advanced keyboard remapping for Wayland |
 | **Shell Prompt** | Starship | Cross-shell customizable prompt |
-| **Multiplexer** | Tmux | Terminal multiplexer for session management |
 
 ## Quick Start
 
@@ -93,7 +92,6 @@ nvim +checkhealth
 ├── starship/        # Shell prompt configuration
 ├── swayosd/         # On-screen display for volume/brightness
 ├── systemd/         # User services (battery notifications)
-├── tmux/            # Terminal multiplexer config
 ├── waybar/          # Status bar with themes
 ├── wlogout/         # Logout menu
 ├── wofi/            # Application launcher
@@ -235,7 +233,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 hyprland waybar kitty wofi swaync
 hyprlock hyprpaper hypridle hyprshot
 neovim git curl wget ripgrep fd
-swayosd kanata tmux
+swayosd kanata 
 ```
 
 **Development Tools:**
