@@ -61,7 +61,7 @@ return {
     end, { desc = "Toggle horizontal terminal" })
 
     vim.keymap.set('n', '<leader>tv', function()
-      vim.cmd('ToggleTerm direction=vertical size=50')
+      vim.cmd('ToggleTerm direction=vertical size=70')
     end, { desc = "Toggle vertical terminal" })
 
     vim.keymap.set('n', '<leader>tf', function()
