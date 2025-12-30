@@ -157,5 +157,6 @@ Leader key: `<Space>`
 | Diffview | `g?` | Show help |
 | Quickfix | `<leader>qo` | Open quickfix list |
 | Quickfix | `<leader>qc` | Close quickfix list |
+| Quickfix | `:cclose` / `:ccl` | Close quickfix list (command) |
 | Quickfix | `]q` | Next quickfix item |
 | Quickfix | `[q` | Previous quickfix item |
