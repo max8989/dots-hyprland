@@ -16,6 +16,9 @@ sleep 1
 # Set date/time for filename
 dateTime=$(date +%m-%d-%Y-%H-%M-%S)
 
+# Get currently focused monitor
+currentMonitor=$(hyprctl monitors -j | jq -r '.[] | select(.focused == true) | .name')
+
 # Start recording with more explicit format settings
 mkdir -p $HOME/Videos/ScreenRecordings
-wf-recorder --bframes max_b_frames -c h264_vaapi -d /dev/dri/renderD128 -f $HOME/Videos/ScreenRecordings/$dateTime.mp4 2>/dev/null
+wf-recorder -o "$currentMonitor" --bframes max_b_frames -c h264_vaapi -d /dev/dri/renderD128 -f $HOME/Videos/ScreenRecordings/$dateTime.mp4 2>/dev/null
