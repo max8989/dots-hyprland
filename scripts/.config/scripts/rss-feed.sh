@@ -50,7 +50,7 @@ cache_valid() {
 fetch_feed() {
     local url="$1"
     local name="$2"
-    local items_count=2
+    local items_count=4
 
     local xml
     xml=$(curl -s --max-time 10 "$url" 2>/dev/null) || {
@@ -92,9 +92,9 @@ get_summary() {
 # Function: Format items for display
 format_items() {
     local items="$1"
-    local max_width=44
+    local max_width=85
 
-    echo "$items" | head -6 | while IFS= read -r line; do
+    echo "$items" | head -10 | while IFS= read -r line; do
         if [[ ${#line} -gt $max_width ]]; then
             echo "${line:0:$((max_width - 3))}..."
         else
@@ -106,7 +106,7 @@ format_items() {
 # Function: Format summary for display
 format_summary() {
     local summary="$1"
-    echo "$summary" | fold -w 46 -s
+    echo "$summary" | fold -w 85 -s
 }
 
 # Function: Refresh cache
