@@ -3,7 +3,7 @@ return {
   version = "*",
   config = function()
     require("toggleterm").setup({
-      size = 20,
+      size = 70,
       open_mapping = [[<C-\>]],
       hide_numbers = true,
       shade_filetypes = {},
@@ -12,7 +12,7 @@ return {
       start_in_insert = true,
       insert_mappings = true,
       persist_size = true,
-      direction = "horizontal",
+      direction = "vertical",
       close_on_exit = true,
       auto_scroll = true,
       on_exit = function()
@@ -36,24 +36,28 @@ return {
 
     -- Multiple terminal instances
     vim.keymap.set('n', '<leader>t1', function()
-      vim.cmd('1ToggleTerm direction=horizontal')
+      vim.cmd('1ToggleTerm direction=horizontal size=20')
     end, { desc = "Toggle terminal 1" })
 
     vim.keymap.set('n', '<leader>t2', function()
-      vim.cmd('2ToggleTerm direction=horizontal')
+      vim.cmd('2ToggleTerm direction=horizontal size=20')
     end, { desc = "Toggle terminal 2" })
 
     vim.keymap.set('n', '<leader>t3', function()
-      vim.cmd('3ToggleTerm direction=horizontal')
+      vim.cmd('3ToggleTerm direction=horizontal size=20')
     end, { desc = "Toggle terminal 3" })
 
     vim.keymap.set('n', '<leader>t4', function()
-      vim.cmd('4ToggleTerm direction=horizontal')
+      vim.cmd('4ToggleTerm direction=vertical size=70')
     end, { desc = "Toggle terminal 4" })
 
     vim.keymap.set('n', '<leader>t5', function()
-      vim.cmd('5ToggleTerm direction=horizontal')
+      vim.cmd('5ToggleTerm direction=vertical size=70')
     end, { desc = "Toggle terminal 5" })
+
+    vim.keymap.set('n', '<leader>t6', function()
+      vim.cmd('6ToggleTerm direction=vertical size=70')
+    end, { desc = "Toggle terminal 6" })
 
     -- Different terminal layouts
     vim.keymap.set('n', '<leader>th', function()
