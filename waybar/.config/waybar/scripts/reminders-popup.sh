@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Interactive popup for completing Obsidian reminders using yad
+# Interactive popup for completing reminders using yad
 
 REMINDERS_DIR="$HOME/Documents/notes/Reminders"
 
 # Kill existing popup if running
-pkill -f "yad.*Obsidian Reminders" 2>/dev/null
+pkill -f "yad.*Reminders" 2>/dev/null
 
 build_reminder_list() {
     local now=$(date +%s)
@@ -12,16 +12,18 @@ build_reminder_list() {
     local today_end=$(date -d "today 23:59:59" +%s)
     local week_end=$(date -d "+7 days 23:59:59" +%s)
 
-    local items=""
-
     # Check if reminders directory exists
     if [[ ! -d "$REMINDERS_DIR" ]]; then
         return
     fi
 
+    # Temporary file to collect and sort items
+    local tmp_file=$(mktemp)
+
     # Find all .md files and parse unchecked reminders
     while IFS= read -r file; do
         [[ -z "$file" ]] && continue
+        local filename=$(basename "$file" .md)
         local lineno=0
         while IFS= read -r line; do
             ((lineno++))
@@ -34,25 +36,39 @@ build_reminder_list() {
 
                 if [[ -n "$reminder_ts" ]]; then
                     local category=""
+                    local sort_key=""
 
                     if [[ $reminder_ts -lt $now ]]; then
                         category="OVERDUE"
+                        sort_key="0"
                     elif [[ $reminder_ts -ge $today_start && $reminder_ts -le $today_end ]]; then
                         category="TODAY"
+                        sort_key="1"
                     elif [[ $reminder_ts -le $week_end ]]; then
                         category=$(date -d "$date" +%A)
+                        # Sort by day of week (2-8)
+                        sort_key=$(($(date -d "$date" +%u) + 1))
                     else
                         continue
                     fi
 
-                    # Format: FALSE|file:lineno|category|time|task
-                    items+="FALSE\n${file}:${lineno}\n${category}\n${time}\n${task}\n"
+                    # Tab-separated for sorting: sort_key, filename, then the display fields
+                    # Order: Done | Ref | Category | Time | File | Task
+                    printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" \
+                        "$sort_key" "$filename" "FALSE" "${file}:${lineno}" "$category" "$time" "$filename" "$task" >> "$tmp_file"
                 fi
             fi
         done < "$file"
     done < <(find "$REMINDERS_DIR" -name "*.md" -type f 2>/dev/null)
 
-    echo -e "$items"
+    # Sort by category (sort_key) then by filename, output as newline-separated fields for yad
+    if [[ -s "$tmp_file" ]]; then
+        sort -t$'\t' -k1,1n -k2,2 "$tmp_file" | while IFS=$'\t' read -r _ _ done_col ref cat time fname task; do
+            printf "%s\n%s\n%s\n%s\n%s\n%s\n" "$done_col" "$ref" "$cat" "$time" "$fname" "$task"
+        done
+    fi
+
+    rm -f "$tmp_file"
 }
 
 complete_reminders() {
@@ -78,7 +94,7 @@ items=$(build_reminder_list)
 
 if [[ -z "$items" ]]; then
     yad --info \
-        --title="Obsidian Reminders" \
+        --title="Reminders" \
         --text="No reminders in the next 7 days" \
         --button="OK:0" \
         --width=300 \
@@ -88,17 +104,19 @@ if [[ -z "$items" ]]; then
 fi
 
 # Display checklist dialog
-result=$(echo -e "$items" | yad --list \
-    --title="Obsidian Reminders" \
+# Columns: Done | Ref (hidden) | Category | Time | File | Task
+result=$(echo "$items" | yad --list \
+    --title="Reminders" \
     --checklist \
     --column="Done" \
     --column="Ref:HD" \
     --column="Category" \
     --column="Time" \
+    --column="File" \
     --column="Task" \
     --print-column=2 \
     --separator="|" \
-    --width=600 \
+    --width=700 \
     --height=400 \
     --center \
     --on-top \
