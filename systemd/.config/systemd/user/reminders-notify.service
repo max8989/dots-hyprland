@@ -1,0 +1,7 @@
+[Unit]
+Description=Obsidian reminder notification checker
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/waybar/scripts/reminders-notify.sh

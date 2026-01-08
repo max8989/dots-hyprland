@@ -91,7 +91,7 @@ nvim +checkhealth
 ├── scripts/         # System utility scripts
 ├── starship/        # Shell prompt configuration
 ├── swayosd/         # On-screen display for volume/brightness
-├── systemd/         # User services (battery notifications)
+├── systemd/         # User services (battery, reminders)
 ├── waybar/          # Status bar with themes
 ├── wlogout/         # Logout menu
 ├── wofi/            # Application launcher
@@ -165,10 +165,48 @@ Pre-configured LSP servers for:
 ### Waybar Modules
 Located in `waybar/.config/waybar/`:
 - **System Monitoring**: CPU temp, memory, battery
-- **Network**: WiFi status and controls  
+- **Network**: WiFi status and controls
 - **Audio**: Volume control with PipeWire
 - **Power**: Battery with charging status
 - **Workspaces**: Hyprland workspace integration
+- **Reminders**: Markdown-based reminder system with notifications
+
+### Reminders Integration
+Waybar module that displays reminders from markdown files.
+
+**Features:**
+- Displays reminder count next to clock with color-coded status
+- Hover tooltip shows categorized reminders (Overdue, Today, Upcoming)
+- Click to open interactive popup for completing reminders
+- Cascading notifications at 2h, 1h, 30m, 15m, 5m before reminders
+- Systemd timer checks for upcoming reminders every minute
+
+**Reminder Format** (in `~/Documents/notes/Reminders/*.md`):
+```markdown
+- [ ] Task description (@YYYY-MM-DD HH:mm)
+- [ ] Buy groceries (@2026-01-15 10:00)
+- [x] Completed task (@2026-01-08 14:30)
+```
+
+**Status Indicators:**
+| Icon | Color | Meaning |
+|------|-------|---------|
+| 󰂚 | Gray | No reminders |
+| 󰂜 | Green | Upcoming reminders |
+| 󰂜 | Yellow | Reminders today |
+| 󰂞 | Red (pulsing) | Overdue reminders |
+
+**Setup:**
+```bash
+# Install dependencies
+sudo pacman -S yad jq
+
+# Create reminders directory
+mkdir -p ~/Documents/notes/Reminders
+
+# Enable notification timer
+systemctl --user enable --now reminders-notify.timer
+```
 
 ### Custom Scripts
 Available in `scripts/.config/scripts/`:
@@ -194,6 +232,9 @@ Available in `waybar/.config/waybar/scripts/`:
 - `current-theme.sh` - Active theme detection
 - `mic-status.sh` - Microphone mute status
 - `power-menu.sh` - Power options menu
+- `reminders.sh` - Markdown reminders waybar module
+- `reminders-popup.sh` - Interactive reminder completion dialog
+- `reminders-notify.sh` - Reminder notification daemon
 - `system-update.sh` - Package update checker
 - `theme-switcher.sh` - Theme switching utility
 - `volume-control.sh` - Audio volume control
@@ -250,8 +291,9 @@ wl-clipboard cliphist
 
 ### Optional Dependencies
 - **Fonts**: CaskaydiaCove Nerd Font, Figtree
-- **Cursors**: Catppuccin cursor themes  
+- **Cursors**: Catppuccin cursor themes
 - **Icons**: Papirus or similar icon pack
+- **Reminders**: yad, jq (for reminders integration)
 
 ## Troubleshooting
 
