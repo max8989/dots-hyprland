@@ -36,27 +36,27 @@ return {
 
     -- Multiple terminal instances
     vim.keymap.set('n', '<leader>t1', function()
-      vim.cmd('1ToggleTerm direction=horizontal size=20')
+      vim.cmd('1ToggleTerm direction=vertical size=70')
     end, { desc = "Toggle terminal 1" })
 
     vim.keymap.set('n', '<leader>t2', function()
-      vim.cmd('2ToggleTerm direction=horizontal size=20')
+      vim.cmd('2ToggleTerm direction=vertical size=70')
     end, { desc = "Toggle terminal 2" })
 
     vim.keymap.set('n', '<leader>t3', function()
-      vim.cmd('3ToggleTerm direction=horizontal size=20')
+      vim.cmd('3ToggleTerm direction=vertical size=70')
     end, { desc = "Toggle terminal 3" })
 
     vim.keymap.set('n', '<leader>t4', function()
-      vim.cmd('4ToggleTerm direction=vertical size=70')
+      vim.cmd('4ToggleTerm direction=horizontal size=20')
     end, { desc = "Toggle terminal 4" })
 
     vim.keymap.set('n', '<leader>t5', function()
-      vim.cmd('5ToggleTerm direction=vertical size=70')
+      vim.cmd('5ToggleTerm direction=horizontal size=20')
     end, { desc = "Toggle terminal 5" })
 
     vim.keymap.set('n', '<leader>t6', function()
-      vim.cmd('6ToggleTerm direction=vertical size=70')
+      vim.cmd('6ToggleTerm direction=horizontal size=20')
     end, { desc = "Toggle terminal 6" })
 
     -- Different terminal layouts
