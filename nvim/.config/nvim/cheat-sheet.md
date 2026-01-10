@@ -53,6 +53,15 @@ Leader key: `<Space>`
 | Neo-tree Help | `?` | Show keyboard help |
 | Window Navigation | `<C-w>h` | Move to left window |
 | Window Navigation | `<C-w>l` | Move to right window |
+| Viewport Scrolling | `<C-d>` | Scroll down half a page |
+| Viewport Scrolling | `<C-u>` | Scroll up half a page |
+| Viewport Scrolling | `<C-f>` | Scroll down a full page |
+| Viewport Scrolling | `<C-b>` | Scroll up a full page |
+| Viewport Scrolling | `<C-e>` | Scroll down one line (cursor stays) |
+| Viewport Scrolling | `<C-y>` | Scroll up one line (cursor stays) |
+| Viewport Scrolling | `zz` | Center current line on screen |
+| Viewport Scrolling | `zt` | Move current line to top of screen |
+| Viewport Scrolling | `zb` | Move current line to bottom of screen |
 | Terminal | `<C-\>` | Toggle horizontal terminal |
 | Terminal | `<C-`>` | Toggle fullscreen floating terminal |
 | Terminal | `<leader>t1` | Toggle terminal 1 |
@@ -119,6 +128,7 @@ Leader key: `<Space>`
 | Debugging | `Q` | DAP Peek (eval under cursor) |
 | Debugging Build (.NET) | `:compiler dotnet` | Set dotnet as compiler |
 | Debugging Build (.NET) | `:make` | Build project (after setting compiler) |
+| Debugging Build (Rust) | `:!cargo build` | Build Rust project (debug mode) |
 | Markdown | `<leader>mp` | Toggle markdown preview |
 | Command Line | `:` | Enhanced command mode |
 | Cheat Sheet | `<leader>ch` | Open built-in cheatsheet |

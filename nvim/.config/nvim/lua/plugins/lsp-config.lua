@@ -20,6 +20,7 @@ return {
 				"typescript-language-server",
 				"json-lsp",
 				"rust-analyzer",
+				"codelldb",
 
 				-- !
 				"roslyn",

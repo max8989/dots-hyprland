@@ -11,6 +11,32 @@ local netcoredbg_adapter = {
 dap.adapters.netcoredbg = netcoredbg_adapter -- needed for normal debugging
 dap.adapters.coreclr = netcoredbg_adapter    -- needed for unit test debugging
 
+-- Rust debugging with codelldb
+local codelldb_path = vim.fn.stdpath("data") .. "/mason/packages/codelldb/extension/adapter/codelldb"
+local liblldb_path = vim.fn.stdpath("data") .. "/mason/packages/codelldb/extension/lldb/lib/liblldb.so"
+
+dap.adapters.codelldb = {
+  type = "server",
+  port = "${port}",
+  executable = {
+    command = codelldb_path,
+    args = { "--port", "${port}" },
+  },
+}
+
+dap.configurations.rust = {
+  {
+    name = "Launch",
+    type = "codelldb",
+    request = "launch",
+    program = function()
+      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+    end,
+    cwd = "${workspaceFolder}",
+    stopOnEntry = false,
+  },
+}
+
 dap.configurations.cs = {
   {
     type = "coreclr",
