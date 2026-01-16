@@ -7,6 +7,8 @@
 ;; - Hold + 1-0: F1-F10
 ;; - Hold + -: F11
 ;; - Hold + =: F12
+;; - Hold + Backspace: Delete
+;; - Hold + \: Delete
 
 (defcfg
   process-unmapped-keys yes
@@ -20,15 +22,15 @@
 )
 
 (defsrc
-  caps h j k l u o q 1 2 3 4 5 6 7 8 9 0 - =
+  caps h j k l u o q 1 2 3 4 5 6 7 8 9 0 - = bspc \
 )
 
 (deflayer base
-  @cap h j k l u o q 1 2 3 4 5 6 7 8 9 0 - =
+  @cap h j k l u o q 1 2 3 4 5 6 7 8 9 0 - = bspc \
 )
 
 (deflayer nav
-  _ left down up right Home End caps f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12
+  _ left down up right Home End caps f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12 del del
 )
 
 (defalias
