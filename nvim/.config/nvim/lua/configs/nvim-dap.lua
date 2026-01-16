@@ -42,7 +42,8 @@ dap.configurations.cs = {
     type = "coreclr",
     name = "launch - netcoredbg",
     request = "launch",
-program = function()
+    console = "integratedTerminal", -- redirect stdout/stderr to terminal
+    program = function()
       -- return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/src/", "file")
       return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/net10.0/", "file")
     end,
