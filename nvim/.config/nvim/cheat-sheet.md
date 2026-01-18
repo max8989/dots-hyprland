@@ -129,6 +129,9 @@ Leader key: `<Space>`
 | Debugging Build (.NET) | `:compiler dotnet` | Set dotnet as compiler |
 | Debugging Build (.NET) | `:make` | Build project (after setting compiler) |
 | Debugging Build (Rust) | `:!cargo build` | Build Rust project (debug mode) |
+| Python Debugging | `<leader>dPm` | Debug method under cursor |
+| Python Debugging | `<leader>dPc` | Debug class under cursor |
+| Python | `<leader>tp` | Open Python REPL |
 | Markdown | `<leader>mp` | Toggle markdown preview |
 | Command Line | `:` | Enhanced command mode |
 | Cheat Sheet | `<leader>ch` | Open built-in cheatsheet |

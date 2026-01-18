@@ -22,6 +22,11 @@ return {
 				"rust-analyzer",
 				"codelldb",
 
+				-- Python
+				"pyright",
+				"ruff",
+				"debugpy",
+
 				-- !
 				"roslyn",
 				-- "csharp-language-server",
@@ -52,7 +57,7 @@ return {
 		lazy = false,
 		opts = {
 			auto_install = true,
-			ensure_installed = { "lua_ls", "ts_ls", "eslint", "emmet_ls", "cssls", "tailwindcss" },
+			ensure_installed = { "lua_ls", "ts_ls", "eslint", "emmet_ls", "cssls", "tailwindcss", "pyright", "ruff" },
 			automatic_enable = true,
 		},
   },
@@ -129,6 +134,35 @@ return {
 				capabilities = capabilities,
 			})
 
+			-- Python LSP (Pyright for type checking + hover)
+			vim.lsp.config("pyright", {
+				capabilities = capabilities,
+				settings = {
+					python = {
+						analysis = {
+							typeCheckingMode = "basic",
+							autoSearchPaths = true,
+							useLibraryCodeForTypes = true,
+							diagnosticMode = "openFilesOnly",
+						},
+					},
+				},
+			})
+
+			-- Python Ruff (fast linting + formatting)
+			vim.lsp.config("ruff", {
+				capabilities = capabilities,
+				init_options = {
+					settings = {
+						logLevel = "error",
+					},
+				},
+				on_attach = function(client, bufnr)
+					-- Disable hover in favor of Pyright
+					client.server_capabilities.hoverProvider = false
+				end,
+			})
+
 			-- Enable servers (mason-lspconfig handles this with automatic_enable = true)
 			vim.lsp.enable("ts_ls")
 			vim.lsp.enable("eslint")
@@ -138,6 +172,8 @@ return {
 			vim.lsp.enable("solargraph")
 			vim.lsp.enable("html")
 			vim.lsp.enable("lua_ls")
+			vim.lsp.enable("pyright")
+			vim.lsp.enable("ruff")
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<F12>", vim.lsp.buf.definition, {})
