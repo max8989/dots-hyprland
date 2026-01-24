@@ -35,6 +35,7 @@ A complete Wayland desktop environment configuration featuring Hyprland window m
 | **On-Screen Display** | SwayOSD | Volume/brightness overlay indicators |
 | **Keyboard Remap** | Kanata | Advanced keyboard remapping for Wayland |
 | **Shell Prompt** | Starship | Cross-shell customizable prompt |
+| **AI Coding** | OpenCode | AI coding assistant with MCP support |
 
 ## Quick Start
 
@@ -85,6 +86,7 @@ nvim +checkhealth
 ├── kanata/          # Keyboard remapping configuration
 ├── kitty/           # Terminal configuration
 ├── nvim/            # Neovim development environment
+├── opencode/        # AI coding assistant config
 ├── pipewire/        # Audio system config
 ├── polybar/         # Alternative status bar (legacy)
 ├── rofi/            # Alternative launcher (legacy)
@@ -136,6 +138,23 @@ Pre-configured LSP servers for:
 - **Web**: TypeScript, JavaScript, HTML, CSS
 - **Systems**: Lua, Bash, Python
 - **Markup**: Markdown, JSON, YAML
+
+### OpenCode Configuration
+
+AI coding assistant with MCP (Model Context Protocol) support.
+
+**Setup:**
+```bash
+# Deploy configuration
+stow opencode
+
+# Set your Context7 API key (add to ~/.bashrc or ~/.zshrc)
+export CONTEXT7_API_KEY="your-api-key-here"
+```
+
+**Features:**
+- Context7 MCP integration for documentation search
+- Use `use context7` in prompts to search docs
 
 
 ## Theming
