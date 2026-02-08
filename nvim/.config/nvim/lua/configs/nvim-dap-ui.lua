@@ -55,15 +55,30 @@ dapui.setup({
   },
 })
 
--- Auto-resize dap-ui when Neovim window is resized (useful for tiling WMs like Hyprland)
+-- Auto-resize dap-ui when window layout changes (useful for tiling WMs like Hyprland)
+local dapui_resize_group = vim.api.nvim_create_augroup("dapui_resize", { clear = true })
+
+-- Helper function to reset dapui if session is active
+local function reset_dapui_layout()
+  if dap.session() then
+    vim.schedule(function()
+      dapui.open({ reset = true })
+    end)
+  end
+end
+
+-- Trigger on Neovim window resize (Hyprland/WM resizing)
 vim.api.nvim_create_autocmd("VimResized", {
-  group = vim.api.nvim_create_augroup("dapui_resize", { clear = true }),
+  group = dapui_resize_group,
+  callback = reset_dapui_layout,
+})
+
+-- Trigger when windows are created or closed (neo-tree, toggleterm, splits, etc.)
+vim.api.nvim_create_autocmd({ "WinClosed", "WinNew" }, {
+  group = dapui_resize_group,
   callback = function()
-    if dap.session() then
-      vim.schedule(function()
-        dapui.open({ reset = true })
-      end)
-    end
+    -- Small delay to let the window layout settle
+    vim.defer_fn(reset_dapui_layout, 50)
   end,
 })
 
