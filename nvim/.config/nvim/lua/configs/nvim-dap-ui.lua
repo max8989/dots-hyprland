@@ -47,14 +47,29 @@ dapui.setup({
     {
       elements = {
         { id = "scopes", size = 0.5 },  -- 50% of width
-        { id = "console", size = 0.2 }, -- 30% of width (right side)
-        { id = "repl", size = 0.3 },    -- 20% of width (REPL for output)
+        { id = "console", size = 0.5 }, -- 50% of width (right side)
       },
       size = 15,                        -- height in lines (adjust to taste)
       position = "bottom",              -- "left", "right", "top", "bottom"
     },
   },
 })
+
+-- Auto-resize dap-ui when Neovim window is resized (useful for tiling WMs like Hyprland)
+vim.api.nvim_create_autocmd("VimResized", {
+  group = vim.api.nvim_create_augroup("dapui_resize", { clear = true }),
+  callback = function()
+    if dap.session() then
+      vim.schedule(function()
+        dapui.open({ reset = true })
+      end)
+    end
+  end,
+})
+
+vim.keymap.set("n", "<leader>dr", function()
+  dapui.open({ reset = true })
+end, { desc = "DAP UI reset layout" })
 
 
 vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "DAP UI toggle" })
