@@ -98,6 +98,10 @@ Located in `waybar/.config/waybar/scripts/`:
 ### Python Packages
 - debugpy (Python debugger)
 
+## MCP Tools — Always Use These
+
+- **Context7 MCP**: Always use the Context7 MCP tool (`resolve-library-id` then `query-docs`) to look up documentation for any library or framework (Neovim, Lazy.nvim, Hyprland, Waybar, etc.). Do not rely on training data alone.
+
 ## System Integration
 
 The configuration assumes:
