@@ -17,6 +17,11 @@
     "chrome-devtools": {
       "type": "local",
       "command": ["npx", "-y", "chrome-devtools-mcp@latest"]
+    },
+    "github-intel": {
+      "type": "local",
+      "command": ["/home/maxime/repos/mcp-server-github-intel/.venv/bin/python", "/home/maxime/repos/mcp-server-github-intel/server.py"],
+      "enabled": true
     }
   }
 }

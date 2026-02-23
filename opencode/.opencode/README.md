@@ -351,6 +351,39 @@ Purpose: Automate order processing and customer support
 
 ## Optional Add-ons
 
+### 🔍 GitHub Intelligence MCP
+Query GitHub repos, issues, PRs, contributors, and search — directly from OpenCode.
+
+```bash
+# Clone the MCP server
+git clone https://github.com/john1224530/mcp-server-github-intel C:/Users/<you>/repos/mcp-server-github-intel
+
+# Install dependencies (requires Python 3.10+)
+C:\Python314\python.exe -m pip install -r C:/Users/<you>/repos/mcp-server-github-intel/requirements.txt
+```
+
+**Optional: add a GitHub token for higher rate limits (5,000/hr vs 60/hr)**
+
+Create a `.env` file in the cloned repo:
+```
+GITHUB_TOKEN=your_token_here
+```
+
+Get a token at [github.com/settings/tokens](https://github.com/settings/tokens) — select only the `public_repo` scope.
+
+**Add to your `opencode.json`:**
+```json
+"github-intel": {
+  "type": "local",
+  "command": ["C:\\Python314\\python.exe", "C:\\Users\\<you>\\repos\\mcp-server-github-intel\\server.py"],
+  "enabled": true
+}
+```
+
+Available tools: `get_repository_info`, `list_issues`, `list_pull_requests`, `get_contributor_stats`, `search_repositories`.
+
+---
+
 ### 📱 Telegram Notifications
 Get notified when OpenCode sessions go idle.
 
