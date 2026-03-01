@@ -2,6 +2,7 @@
   "layer": "top",
   "position": "top",
   "mode": "dock",
+
   "reload_style_on_change": true,
   "gtk-layer-shell": true,
 
@@ -82,10 +83,17 @@
   },
 
   "pulseaudio": {
-    "format": "VOL {volume}%",
-    "format-muted": "MUTE",
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 {volume}%",
+    "format-icons": {
+      "headphone": "󰋋",
+      "headset": "󰋎",
+      "speaker": "󰓃",
+      "hdmi": "󰡁",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
     "tooltip": true,
-    "tooltip-format": "{desc} at {volume}%",
+    "tooltip-format": "{desc} — {volume}%",
     "scroll-step": 5,
     "on-click": "hyprwat --audio",
     "on-click-right": "swayosd-client --output-volume mute-toggle",
