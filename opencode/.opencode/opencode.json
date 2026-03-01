@@ -12,6 +12,9 @@
     "supabase": {
       "type": "remote",
       "url": "https://mcp.supabase.com/mcp",
+      "headers": {
+        "Authorization": "Bearer {env:SUPABASE_ACCESS_TOKEN}"
+      },
       "enabled": true
     },
     "chrome-devtools": {
