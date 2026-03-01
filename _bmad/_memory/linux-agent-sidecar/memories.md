@@ -34,6 +34,14 @@
 - Dotfiles repo path: ~/dots-hyprland
 - Stow packages: hyprland, hyprlock, hyprmocha, hyprpaper, kanata, kitty, nvim, opencode, polybar, rofi, scripts, starship, swayosd, systemd, waybar, wlogout, wofi, backgrounds
 
+## Session History (continued)
+
+### Session: 2026-03-01
+- Alerts surfaced: [audio headphone/speaker auto-switching broken]
+- Root cause: WirePlumber disables `api.acp.auto-profile` by default in `alsa.lua`; SOF HDA DSP jack detection doesn't reliably trigger WirePlumber's profile-selection event hook
+- Fix applied: Created `~/.config/wireplumber/wireplumber.conf.d/51-alsa-auto-profile.conf` via new `wireplumber` stow package — overrides `api.acp.auto-profile = true` and `api.acp.auto-port = true` for `alsa_card.pci-0000_00_1f.3-platform-skl_hda_dsp_generic`
+- User decisions: [wireplumber stow package created and symlinked]
+
 ## Installed Stow Packages
 
 | Package | Purpose |
@@ -56,6 +64,7 @@
 | wlogout | Logout screen |
 | wofi | Wayland-native launcher (power menu) |
 | backgrounds | Wallpaper images |
+| wireplumber | WirePlumber config (51-alsa-auto-profile.conf — jack detection fix) |
 
 ## Hyprland Setup
 
