@@ -24,6 +24,7 @@
     "network", // wifi/ethernet status
     "pulseaudio", // output device
     "custom/mic", // microphone
+    "idle_inhibitor", // presentation mode (prevent sleep)
     "power-profiles-daemon", // power profile switcher
     "battery", // battery
     "hyprland/language", // keyboard layout
@@ -169,6 +170,16 @@
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
     "escape": true
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰅶",
+      "deactivated": "󰾪"
+    },
+    "tooltip-format-activated": "Presentation mode ON — sleep inhibited",
+    "tooltip-format-deactivated": "Presentation mode OFF — normal idle behavior"
   },
 
   "custom/power": {

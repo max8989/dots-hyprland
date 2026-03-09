@@ -74,7 +74,8 @@ window#waybar > box {
 #custom-mic,
 #custom-notification,
 #custom-power,
-#power-profiles-daemon {
+#power-profiles-daemon,
+#idle_inhibitor {
   padding: 0 10px;
   color: #ffffff;
   background: #222222;
@@ -138,6 +139,12 @@ tooltip {
 tooltip label {
   color: #ffffff;
   padding: 5px;
+}
+
+/* Idle inhibitor (presentation mode) */
+#idle_inhibitor.activated {
+  background: #285577;
+  color: #ffffff;
 }
 
 /* Power menu button */
