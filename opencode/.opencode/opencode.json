@@ -25,6 +25,16 @@
       "type": "local",
       "command": ["/home/maxime/repos/mcp-server-github-intel/.venv/bin/python", "/home/maxime/repos/mcp-server-github-intel/server.py"],
       "enabled": true
+    },
+    "git": {
+      "type": "local",
+      "command": ["uvx", "mcp-server-git"],
+      "enabled": true
+    },
+    "github": {
+      "type": "local",
+      "command": ["/home/maxime/.local/bin/github-mcp-server", "stdio"],
+      "enabled": true
     }
   }
 }
