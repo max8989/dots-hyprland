@@ -36,7 +36,7 @@ while getopts o: opt; do
       ;;
     d) # Decrease brightness
       # SwayOSD handles both the brightness change and OSD display
-      swayosd-client --brightness lower
+      swayosd-client --brightness lower --min-brightness 0
       ;;
     *)
       print_error
