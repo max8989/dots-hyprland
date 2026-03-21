@@ -1,0 +1,47 @@
+{
+  "mcpServers": {
+    "context7": {
+      "url": "https://mcp.context7.com/mcp",
+      "transport": {
+        "type": "http"
+      },
+      "headers": {
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+      }
+    },
+    "supabase": {
+      "url": "https://mcp.supabase.com/mcp",
+      "transport": {
+        "type": "http"
+      },
+      "headers": {
+        "Authorization": "Bearer {env:SUPABASE_ACCESS_TOKEN}"
+      }
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": ["-y", "chrome-devtools-mcp@latest"]
+    },
+    "github-intel": {
+      "command": "/home/maxime/repos/mcp-server-github-intel/.venv/bin/python",
+      "args": ["/home/maxime/repos/mcp-server-github-intel/server.py"]
+    },
+    "git": {
+      "command": "uvx",
+      "args": ["mcp-server-git"]
+    },
+    "github": {
+      "command": "/home/maxime/.local/bin/github-mcp-server",
+      "args": ["stdio"]
+    },
+    "context-mode": {
+      "command": "context-mode"
+    },
+    "figma": {
+      "url": "https://mcp.figma.com/mcp",
+      "transport": {
+        "type": "http"
+      }
+    }
+  }
+}
