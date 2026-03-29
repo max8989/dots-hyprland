@@ -148,6 +148,9 @@ AI coding assistant with MCP (Model Context Protocol) support.
 # Deploy configuration
 stow opencode
 
+# Install context-mode MCP tool globally
+npm install -g context-mode
+
 # Set your Context7 API key (add to ~/.bashrc or ~/.zshrc)
 export CONTEXT7_API_KEY="your-api-key-here"
 ```
