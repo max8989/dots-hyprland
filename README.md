@@ -156,6 +156,43 @@ export CONTEXT7_API_KEY="your-api-key-here"
 - Context7 MCP integration for documentation search
 - Use `use context7` in prompts to search docs
 
+#### Figma Remote MCP
+
+Figma maintains a client whitelist for their remote MCP and OpenCode is not on it yet (pending approval as of March 2026). A one-time workaround using a patched fork is required to authenticate — the resulting OAuth tokens are cached and picked up by your normal `opencode` binary automatically.
+
+**1. Deploy the config (already includes Figma):**
+```bash
+stow opencode
+```
+
+**2. One-time OAuth via the workaround fork:**
+```bash
+git clone -b mcp-auth-workaround https://github.com/connorads/opencode.git ~/repos/opencode-mcp-auth
+cd ~/repos/opencode-mcp-auth
+bun install
+bun dev mcp auth figma
+```
+Browser opens → Figma OAuth → click **Allow access**. Tokens are cached to `~/.local/share/opencode/mcp-auth.json`. Restart OpenCode — done.
+
+**Re-auth (if tokens expire):** repeat step 2 from `~/repos/opencode-mcp-auth`.
+
+> Full details and usage: `opencode/.opencode/FIGMA-MCP.md`
+> Tracking issue: https://github.com/anomalyco/opencode/issues/5636
+
+#### opencode-claude-bridge (Claude Pro/Max OAuth)
+
+Plugin that auto-syncs Claude CLI OAuth credentials into OpenCode — no API key needed if you're already logged into Claude CLI.
+
+**Install:** already included in `opencode/.opencode/opencode.json` via `"plugin": ["opencode-claude-bridge"]`. OpenCode auto-installs from npm on first launch.
+
+**Upgrade to latest version:**
+```bash
+cd ~/.cache/opencode && npm install opencode-claude-bridge@latest
+```
+Then restart OpenCode.
+
+> Source: https://github.com/dotCipher/opencode-claude-bridge
+
 
 ## Theming
 
