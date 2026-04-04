@@ -182,19 +182,26 @@ Browser opens → Figma OAuth → click **Allow access**. Tokens are cached to `
 > Full details and usage: `opencode/.opencode/FIGMA-MCP.md`
 > Tracking issue: https://github.com/anomalyco/opencode/issues/5636
 
-#### opencode-claude-bridge (Claude Pro/Max OAuth)
+#### opencode-anthropic-oauth (Claude Pro/Max OAuth)
 
-Plugin that auto-syncs Claude CLI OAuth credentials into OpenCode — no API key needed if you're already logged into Claude CLI.
+Plugin for Anthropic Claude Pro/Max OAuth login — no Claude Code or API key needed. Implements OAuth PKCE flow directly against Anthropic's auth endpoints with auto-refresh.
 
-**Install:** already included in `opencode/.opencode/opencode.json` via `"plugin": ["opencode-claude-bridge"]`. OpenCode auto-installs from npm on first launch.
+**Install:** already included in `opencode/.opencode/opencode.json` via `"plugin": ["opencode-anthropic-oauth"]`. OpenCode auto-installs from npm on first launch.
+
+**Usage:**
+1. Run `/connect` in OpenCode (or `oc auth login` from CLI)
+2. Select **Anthropic** > **Claude Pro/Max**
+3. Open the link in your browser and authorize
+4. Paste the code back into OpenCode
+5. Done — all Anthropic models are now available
 
 **Upgrade to latest version:**
 ```bash
-cd ~/.cache/opencode && npm install opencode-claude-bridge@latest
+cd ~/.cache/opencode && npm install opencode-anthropic-oauth@latest
 ```
 Then restart OpenCode.
 
-> Source: https://github.com/dotCipher/opencode-claude-bridge
+> Source: https://github.com/shahidshabbir-se/opencode-anthropic-oauth
 
 
 ## Theming
