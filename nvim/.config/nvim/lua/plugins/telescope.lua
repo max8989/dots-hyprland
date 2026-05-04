@@ -11,6 +11,9 @@ return {
         defaults = {
           hidden = true,
           file_ignore_patterns = { ".git/" },
+          preview = {
+            treesitter = { enable = false },
+          },
           vimgrep_arguments = {
             "rg",
             "--color=never",
