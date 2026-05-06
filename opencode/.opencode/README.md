@@ -1,4 +1,4 @@
-<div align="center">
+<qdiv align="center">
 
 # OpenAgents Control
 
