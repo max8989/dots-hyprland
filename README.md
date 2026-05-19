@@ -11,7 +11,7 @@ Running on a **ThinkPad X1 Carbon 7th Gen** with Intel i7-8565U (8 cores @ 4.6GH
 A complete Wayland desktop environment configuration featuring Hyprland window manager, optimized for development workflows on Arch Linux.
 
 ## Features
-
+README.md
 - **Modern Wayland Desktop**: Full Hyprland setup with smooth animations and gestures
 - **Development-Ready**: Comprehensive Neovim configuration with LSP, debugging, and Git integration
 - **Theme System**: Multiple Catppuccin and Gruvbox theme variants with dynamic switching
