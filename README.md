@@ -13,7 +13,7 @@ A complete Wayland desktop environment configuration featuring Hyprland window m
 ## Features
 
 - **Modern Wayland Desktop**: Full Hyprland setup with smooth animations and gestures
-- **Development-Ready**: Comprehensive Neovim configuration with LSP, debugging, and Git integration  
+- **Development-Ready**: Comprehensive Neovim configuration with LSP, debugging, and Git integration
 - **Theme System**: Multiple Catppuccin and Gruvbox theme variants with dynamic switching
 - **Professional Workflow**: Integrated terminal, launcher, notifications, and system monitoring
 - **GNU Stow Management**: Clean, organized dotfile deployment system
@@ -210,7 +210,7 @@ Then restart OpenCode.
 **Catppuccin Variants:**
 - Mocha (dark)
 - Macchiato (dark)
-- Frappe (dark) 
+- Frappe (dark)
 - Latte (light)
 
 **Gruvbox Variants:**
@@ -221,6 +221,7 @@ Then restart OpenCode.
 ```bash
 # Switch themes using waybar scripts
 ~/.config/waybar/scripts/theme-switcher.sh
+
 
 # Themes are automatically applied to:
 # - Waybar, Kitty, Hyprland, Wofi, Rofi
@@ -340,7 +341,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 hyprland waybar kitty wofi swaync
 hyprlock hyprpaper hypridle hyprshot
 neovim git curl wget ripgrep fd
-swayosd kanata 
+swayosd kanata
 ```
 
 **Development Tools:**
@@ -376,8 +377,8 @@ wl-clipboard cliphist
 # Check Hyprland logs
 journalctl -f -u hyprland
 
-# Verify stow links  
-stow -n -v */ 
+# Verify stow links
+stow -n -v */
 
 # Test Neovim health
 nvim +checkhealth
