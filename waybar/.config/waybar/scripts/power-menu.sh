@@ -23,7 +23,7 @@ selected_option=$(echo -e "$actions" | wofi \
 # Perform actions based on the selected option
 case "$selected_option" in
 *Lock)
-  loginctl lock-session
+  hyprlock
   ;;
 *Shutdown)
   systemctl poweroff
