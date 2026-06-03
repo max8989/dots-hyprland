@@ -22,6 +22,13 @@
     "nix-command"
     "flakes"
   ];
+  # Hyprland flake is not built by Hydra / cache.nixos.org — pull its prebuilt
+  # binaries from the official Cachix instead of compiling locally. Valid only
+  # because we do NOT override hyprland's nixpkgs input (see flake.nix).
+  nix.settings.substituters = [ "https://hyprland.cachix.org" ];
+  nix.settings.trusted-public-keys = [
+    "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+  ];
   nixpkgs.config.allowUnfree = true;
 
   ##########################################################################
@@ -39,7 +46,7 @@
     enable = true;
     type = "fcitx5";
     fcitx5.addons = with pkgs; [
-      fcitx5-chinese-addons
+      qt6Packages.fcitx5-chinese-addons # renamed from top-level fcitx5-chinese-addons
       fcitx5-gtk
     ];
   };
@@ -97,8 +104,9 @@
   services.dbus.enable = true;
   # ThinkPad fingerprint reader (7th gen). Enroll with `fprintd-enroll`.
   services.fprintd.enable = true;
-  # Brightness control without root (used by hypridle / swayosd).
-  programs.light.enable = true;
+  # Brightness control without root (used by hypridle / swayosd via brightnessctl).
+  # Installs brightnessctl's udev rules so the `video` group can write the backlight.
+  services.udev.packages = [ pkgs.brightnessctl ];
 
   ##########################################################################
   ## Fonts
@@ -132,6 +140,10 @@
     git
     vim
   ];
+
+  # VM-test only: give `maxime` a known password so tuigreet login works in the
+  # QEMU VM. Does NOT apply to a real install (vmVariant scope). Login: maxime / test.
+  virtualisation.vmVariant.users.users.maxime.initialPassword = "test";
 
   # First NixOS generation this config targets. Do not change after install.
   system.stateVersion = "25.11"; # TODO: set to the installer's release

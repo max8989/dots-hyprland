@@ -40,7 +40,7 @@ in
       btop
 
       # --- launchers / menus ---
-      rofi-wayland
+      rofi # rofi-wayland was merged into rofi
       wofi
 
       # --- clipboard ---
@@ -48,7 +48,9 @@ in
       wl-clipboard # provides wl-copy / wl-paste
 
       # --- window switching / wayland utils ---
-      hyprswitch # verify it is in nixpkgs
+      # hyprswitch — NOT in nixpkgs (ships its own flake github:h3rmt/hyprswitch).
+      # Dropped for now; keybind (keybindings.conf:157-158) + exec-once are dead until
+      # packaged as a flake input. TODO: add input or rebind.
       playerctl
       brightnessctl # used by hypridle.conf
       swayosd # provides swayosd-server / swayosd-client
