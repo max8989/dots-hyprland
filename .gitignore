@@ -3,3 +3,6 @@ GitGraph
 hyprlock/.config/hypr/rss-config.sh
 _bmad/_memory/
 node-compile-cache/*
+
+# NixOS VM-test disk image (build artifact, created by run-x1carbon-vm)
+*.qcow2

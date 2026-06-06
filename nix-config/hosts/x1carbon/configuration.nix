@@ -104,6 +104,8 @@
   services.dbus.enable = true;
   # ThinkPad fingerprint reader (7th gen). Enroll with `fprintd-enroll`.
   services.fprintd.enable = true;
+  # Power profile switcher — backs waybar's `power-profiles-daemon` module.
+  services.power-profiles-daemon.enable = true;
   # Brightness control without root (used by hypridle / swayosd via brightnessctl).
   # Installs brightnessctl's udev rules so the `video` group can write the backlight.
   services.udev.packages = [ pkgs.brightnessctl ];
@@ -114,8 +116,12 @@
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [
-      nerd-fonts.caskaydia-cove
+      nerd-fonts.caskaydia-cove # kitty (CaskaydiaCove Nerd Font Mono)
+      nerd-fonts.jetbrains-mono # waybar style.css (JetBrainsMono Nerd Font)
       figtree
+      # CJK — hyprlock phrases_zh.txt + fcitx5 Chinese input candidates.
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
     ];
   };
 
@@ -141,9 +147,20 @@
     vim
   ];
 
-  # VM-test only: give `maxime` a known password so tuigreet login works in the
-  # QEMU VM. Does NOT apply to a real install (vmVariant scope). Login: maxime / test.
-  virtualisation.vmVariant.users.users.maxime.initialPassword = "test";
+  # VM-test only settings (vmVariant scope — none of this applies to a real install).
+  virtualisation.vmVariant = {
+    # Known password so tuigreet login works in the QEMU VM. Login: maxime / test.
+    users.users.maxime.initialPassword = "test";
+
+    # Match the host panel (1920x1200). QEMU's default x86 display advertises only
+    # 1024x768 as preferred, so Hyprland's `,highres,auto,1` lands there. Switch to
+    # virtio-gpu and have it advertise 1920x1200 as preferred; `highres` then
+    # auto-selects it — no change to the shared monitor config.
+    virtualisation.qemu.options = [
+      "-vga none"
+      "-device virtio-gpu-pci,xres=1920,yres=1200"
+    ];
+  };
 
   # First NixOS generation this config targets. Do not change after install.
   system.stateVersion = "25.11"; # TODO: set to the installer's release

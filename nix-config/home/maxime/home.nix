@@ -39,6 +39,9 @@ in
       zed-editor # verify attr name
       btop
 
+      # --- bar ---
+      waybar # launched from hyprland exec-once; config deployed in waybar.nix
+
       # --- launchers / menus ---
       rofi # rofi-wayland was merged into rofi
       wofi
@@ -54,8 +57,10 @@ in
       playerctl
       brightnessctl # used by hypridle.conf
       swayosd # provides swayosd-server / swayosd-client
+      kanata # caps-lock vim nav, launched from exec-once (hyprland.nix:46)
 
       # --- screenshots / recording (used by scripts/screenshot.sh, screen_record.sh) ---
+      hyprshot # scripts/screenshot.sh calls `hyprshot` directly
       grim
       slurp
       wf-recorder
