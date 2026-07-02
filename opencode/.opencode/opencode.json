@@ -46,5 +46,28 @@
       "enabled": true
     }
   },
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama (archlinux-desktop)",
+      "options": {
+        "baseURL": "http://192.168.2.94:11434/v1"
+      },
+      "models": {
+        "qwen2.5:7b": {
+          "name": "Qwen2.5 7B (remote)"
+        },
+        "qwen2.5-coder:7b": {
+          "name": "Qwen2.5 Coder 7B (remote)"
+        },
+        "qwen3:8b": {
+          "name": "Qwen3 8B (remote)"
+        },
+        "gemma4:12b": {
+          "name": "Gemma 4 12B (remote)"
+        }
+      }
+    }
+  },
   "plugin": ["context-mode","opencode-anthropic-oauth"]
 }
