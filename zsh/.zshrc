@@ -32,5 +32,24 @@ alias la='eza -lah --group-directories-first --icons'
 alias lt='eza --tree --icons'
 alias cat='bat --paging=never'
 
+# General
+alias grep='grep --color=auto'
+alias df='df -h'
+alias du='du -h -c'
+alias free='free -h'
+alias l='ls -CF'
+alias lla='ls -lha'
+alias c='clear'
+alias q='exit'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias neofetch='fastfetch'
+
+# Clipboard helpers
+alias pwdc='pwd | wl-copy'
+alias cdo='pwd | xargs -I{} echo "cd {} && opencode" | wl-copy'
+alias cdc='pwd | xargs -I{} echo "cd {} && claude" | wl-copy'
+alias cdd='pwd | xargs -I{} echo "cd {}" | wl-copy'
+
 # --- Syntax highlighting (MUST be sourced last) ---
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
